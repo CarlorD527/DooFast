@@ -1,0 +1,9 @@
+C:\Users\Rolf\source\repos\DooFast\CapaAccesoDatos\bin\Debug\CapaAccesoDatos.dll
+C:\Users\Rolf\source\repos\DooFast\CapaAccesoDatos\bin\Debug\CapaAccesoDatos.pdb
+C:\Users\Rolf\source\repos\DooFast\CapaAccesoDatos\bin\Debug\CapaEntidades.dll
+C:\Users\Rolf\source\repos\DooFast\CapaAccesoDatos\bin\Debug\CapaEntidades.pdb
+C:\Users\Rolf\source\repos\DooFast\CapaAccesoDatos\obj\Debug\CapaAccesoDatos.csproj.AssemblyReference.cache
+C:\Users\Rolf\source\repos\DooFast\CapaAccesoDatos\obj\Debug\CapaAccesoDatos.csproj.CoreCompileInputs.cache
+C:\Users\Rolf\source\repos\DooFast\CapaAccesoDatos\obj\Debug\CapaAccesoDatos.csproj.CopyComplete
+C:\Users\Rolf\source\repos\DooFast\CapaAccesoDatos\obj\Debug\CapaAccesoDatos.dll
+C:\Users\Rolf\source\repos\DooFast\CapaAccesoDatos\obj\Debug\CapaAccesoDatos.pdb
