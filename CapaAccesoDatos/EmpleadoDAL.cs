@@ -28,6 +28,9 @@ namespace CapaAccesoDatos
 
                     cmd.Parameters.AddWithValue("@nombre", obj.nombre);
                     cmd.Parameters.AddWithValue("@tipoEmpleado", obj.tipoEmpleado);
+                    cmd.Parameters.AddWithValue("@usuario", obj.usuario);
+                    cmd.Parameters.AddWithValue("@contraseña", obj.contrasenia);
+                    cmd.Parameters.AddWithValue("@salario", obj.salario);
                     cn.Open();
                     cmd.ExecuteNonQuery();
                     state = true;
@@ -60,6 +63,9 @@ namespace CapaAccesoDatos
                     emp.idEmpleado = Convert.ToInt32(dt.Rows[i]["idEmpleado"]);
                     emp.nombre = dt.Rows[i]["Nombre"].ToString();
                     emp.tipoEmpleado = dt.Rows[i]["TipoEmpleado"].ToString();
+                    emp.usuario = dt.Rows[i]["usuario"].ToString();
+                    emp.contrasenia = dt.Rows[i]["contraseña"].ToString();
+                    emp.salario = Convert.ToDouble(dt.Rows[i]["salario"]);
                     emp.visible = Convert.ToInt32(dt.Rows[i]["visible"]);
 
                     lstEmpleados.Add(emp);

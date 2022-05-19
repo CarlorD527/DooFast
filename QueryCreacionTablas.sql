@@ -1,11 +1,15 @@
 CREATE TABLE Empleado ( 
   idEmpleado           INT NOT NULL IDENTITY(1,1),
+  nombre			VARCHAR(40),
   usuario              VARCHAR(40),
   contraseña           VARCHAR(100),
   tipoEmpleado         VARCHAR(40),
   salario              MONEY,
+  visible              BIT DEFAULT 1,
 CONSTRAINT PK_9 PRIMARY KEY (idEmpleado)
 ) 
+GO
+
 GO
 CREATE TABLE PedidoPersona ( 
   idPedido           INT NOT NULL IDENTITY(1,1),
