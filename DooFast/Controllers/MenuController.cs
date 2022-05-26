@@ -11,9 +11,11 @@ using System.Web.Helpers;
 using Newtonsoft.Json.Linq;
 using System.Web.Http.Results;
 using System.Web.Mvc;
+using System.Web.Http.Cors;
 
 namespace DooFast.Controllers
 {
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class MenuController : ApiController
     {
         // GET: api/Menu

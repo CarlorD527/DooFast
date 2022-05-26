@@ -2,15 +2,21 @@ using System.Web.Http;
 using WebActivatorEx;
 using DooFast;
 using Swashbuckle.Application;
+using System.Web.Http.Cors;
+using System;
+using System.Net.Http;
 
 [assembly: PreApplicationStartMethod(typeof(SwaggerConfig), "Register")]
 
 namespace DooFast
 {
+   
     public class SwaggerConfig
     {
+      
         public static void Register()
         {
+         
             var thisAssembly = typeof(SwaggerConfig).Assembly;
        
             GlobalConfiguration.Configuration
@@ -20,7 +26,7 @@ namespace DooFast
                         // However, there may be situations (e.g. proxy and load-balanced environments) where this does not
                         // resolve correctly. You can workaround this by providing your own code to determine the root URL.
                         //
-                        //c.RootUrl(req => GetRootUrlFromAppConfig());
+                        c.RootUrl(req => req.RequestUri.GetLeftPart(UriPartial.Authority).TrimEnd('/') + req.GetRequestContext().VirtualPathRoot.TrimStart('/'));
 
                         // If schemes are not explicitly provided in a Swagger 2.0 document, then the scheme used to access
                         // the docs is taken as the default. If your API supports multiple schemes and you want to be explicit
@@ -36,7 +42,7 @@ namespace DooFast
 
                         // If you want the output Swagger docs to be indented properly, enable the "PrettyPrint" option.
                         //
-                        //c.PrettyPrint();
+                       c.PrettyPrint();
 
                         // If your API has multiple versions, use "MultipleApiVersions" instead of "SingleApiVersion".
                         // In this case, you must provide a lambda that tells Swashbuckle which actions should be
