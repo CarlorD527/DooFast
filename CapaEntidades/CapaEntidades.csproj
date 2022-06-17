@@ -42,7 +42,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EmpleadoBE.cs" />
-    <Compile Include="ProductoBE.cs" />
+    <Compile Include="PedidoBE.cs" />
+    <Compile Include="ComidaBE.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
