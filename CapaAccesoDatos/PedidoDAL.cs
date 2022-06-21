@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 namespace CapaAccesoDatos
 {
     // CREAR PEDIDO [TOMAR PEDIDO]
-    public class PedidoDAL
+    public class PedidoDal
     {
         private String cnxStr = ConfigurationManager.ConnectionStrings["cnx"].ConnectionString;
 
@@ -85,5 +85,67 @@ namespace CapaAccesoDatos
                 return null;
             }
         }
+
+        public List<PedidoBEforListPorMesa> listarPedidosPorMesa(int nroMesa)
+        {
+
+            try
+            {
+                using (SqlConnection cn = new SqlConnection(cnxStr))
+                {
+
+                    SqlCommand cmd = new SqlCommand("usp_ListarOrdenesPorMesa", cn);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandTimeout = 600;
+                    cmd.Parameters.Add("@idMesa", SqlDbType.Int).Value = nroMesa;
+
+                    SqlDataAdapter sda = new SqlDataAdapter(cmd);
+                    DataTable dt = new DataTable();
+                    sda.Fill(dt);
+
+                    List<PedidoBEforListPorMesa> lstOrdenesPorMesa= new List<PedidoBEforListPorMesa>();
+
+                    if (dt.Rows.Count > 0)
+                    {
+
+                        for (int i = 0; i < dt.Rows.Count; i++)
+                        {
+                            PedidoBEforListPorMesa comida = new PedidoBEforListPorMesa();
+
+                            comida.idMesa = Convert.ToInt32(dt.Rows[i]["idMesa"]);
+                            comida.idOrden= Convert.ToInt32(dt.Rows[i]["idOrden"]);
+                            comida.idComida = Convert.ToInt32(dt.Rows[i]["idComida"]);
+                            comida.nombreCategoria= dt.Rows[i]["nombreCategoria"].ToString();
+                            comida.nombreComida = dt.Rows[i]["nombreComida"].ToString();
+                            comida.precio = Convert.ToDouble(dt.Rows[i]["precio"]);
+                            comida.estadoOrden = dt.Rows[i]["estadoOrden"].ToString();
+                            comida.cantidad = Convert.ToInt32(dt.Rows[i]["cantidad"]);
+                            comida.fechaCreacion = Convert.ToDateTime(dt.Rows[i]["fechaCreacion"]);
+
+
+                            lstOrdenesPorMesa.Add(comida);
+                        }
+                    }
+                    if (lstOrdenesPorMesa.Count > 0)
+                    {
+                        return lstOrdenesPorMesa;
+                    }
+                    else
+                    {
+
+                        return null;
+                    }
+                }
+
+            }
+            catch (Exception e)
+            {
+
+                throw new Exception(e.Message);
+
+            }
+        }
+
+
     }
 }

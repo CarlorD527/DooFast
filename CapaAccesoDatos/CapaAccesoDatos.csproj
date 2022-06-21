@@ -42,9 +42,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EmpleadoDAL.cs" />
-    <Compile Include="PedidoDAL.cs" />
-    <Compile Include="ComidaDAL.cs" />
+    <Compile Include="EmpleadoDal.cs" />
+    <Compile Include="PedidoDal.cs" />
+    <Compile Include="ComidaDal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

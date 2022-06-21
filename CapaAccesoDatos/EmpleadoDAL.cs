@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Configuration;
 namespace CapaAccesoDatos
 {
-    public class EmpleadoDAL
+    public class EmpleadoDal
     {
         private String cnxStr = ConfigurationManager.ConnectionStrings["cnx"].ConnectionString;
 

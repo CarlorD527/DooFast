@@ -11,7 +11,7 @@ namespace CapaNegocio
     public class PedidoBL
     {
         // CRUD DE PEDIDO
-        private PedidoDAL pedidoDALC = new PedidoDAL();
+        private PedidoDal pedidoDALC = new PedidoDal();
 
         //CREAR PEDIDO - TOMAR PEDIDO DEL CLIENTE
         public bool Add(PedidoBE obj)
@@ -46,5 +46,24 @@ namespace CapaNegocio
 
         }
 
+
+        public List<PedidoBEforListPorMesa> listarOrdenPorMesa(int idMesa)
+        {
+
+            try
+            {
+                List<PedidoBEforListPorMesa> lstPedidosPorMesa= new List<PedidoBEforListPorMesa>();
+
+                lstPedidosPorMesa = pedidoDALC.listarPedidosPorMesa(idMesa);
+
+                return lstPedidosPorMesa;
+            }
+            catch (Exception e)
+            {
+
+                throw new Exception(e.Message);
+            }
+
+        }
     }
 }

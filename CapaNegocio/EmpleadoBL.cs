@@ -10,7 +10,7 @@ namespace CapaNegocio
 {
     public class EmpleadoBL
     {
-        private EmpleadoDAL empleadoDALC = new EmpleadoDAL();
+        private EmpleadoDal empleadoDALC = new EmpleadoDal();
 
         public bool Add(EmpleadoBE obj)
         {

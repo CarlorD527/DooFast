@@ -12,7 +12,7 @@ namespace CapaNegocio
     {
 
         // CRUD DE COMIDAS
-        private ComidaDAL comidaDALC = new ComidaDAL();
+        private ComidaDal comidaDALC = new ComidaDal();
 
         public bool Add(ComidaBE obj)
         {

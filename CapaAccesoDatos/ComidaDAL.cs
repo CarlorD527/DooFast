@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace CapaAccesoDatos
 {
-    public class ComidaDAL
+    public class ComidaDal
     {
 
         private String cnxStr = ConfigurationManager.ConnectionStrings["cnx"].ConnectionString;
@@ -76,8 +76,8 @@ namespace CapaAccesoDatos
             }
             else
             {
-
-                return null;
+                List<ComidaBEforList> lstComidasVacia = new List<ComidaBEforList>();
+                return lstComidasVacia;
             }
         }
 
@@ -120,7 +120,8 @@ namespace CapaAccesoDatos
                     else
                     {
 
-                        return null;
+                        List<ComidaBEforList> lstComidasVacia = new List<ComidaBEforList>();
+                        return lstComidasVacia;
                     }
                 }
 
@@ -230,7 +231,8 @@ namespace CapaAccesoDatos
             else
             {
 
-                return null;
+                List<ComidaBEforList> lstComidasVacia = new List<ComidaBEforList>();
+                return lstComidasVacia;
             }
         }
 

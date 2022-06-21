@@ -104,3 +104,7 @@ C:\Users\Rolf\source\repos\DooFast\DooFast\bin\CapaAccesoDatos.pdb
 C:\Users\Rolf\source\repos\DooFast\DooFast\bin\System.Web.Cors.dll
 C:\Users\Rolf\source\repos\DooFast\DooFast\bin\System.Web.Http.Cors.dll
 C:\Users\Rolf\source\repos\DooFast\DooFast\bin\System.Web.Http.Cors.xml
+C:\Users\Rolf\source\repos\DooFast\DooFast\bin\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+C:\Users\Rolf\source\repos\DooFast\DooFast\bin\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+C:\Users\Rolf\source\repos\DooFast\DooFast\bin\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+C:\Users\Rolf\source\repos\DooFast\DooFast\bin\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
