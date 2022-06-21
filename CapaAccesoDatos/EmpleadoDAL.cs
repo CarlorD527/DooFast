@@ -76,8 +76,8 @@ namespace CapaAccesoDatos
                 return lstEmpleados;
             }
             else {
-
-                return null;
+                List<EmpleadoBE> lstEmpleadosVacia = new List<EmpleadoBE>();
+                return lstEmpleadosVacia;
             }
         }
     }

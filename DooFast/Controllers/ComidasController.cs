@@ -17,9 +17,9 @@ namespace DooFast.Controllers
         public List<ComidaBEforList> Get()
         {
             ComidaBL obj = new ComidaBL();
-            List<ComidaBEforList> lstComidas= new List<ComidaBEforList>();
+            _ = new List<ComidaBEforList>();
 
-            lstComidas = obj.listarComidas();
+            List<ComidaBEforList> lstComidas = obj.listarComidas();
 
             return lstComidas;
         }
@@ -28,9 +28,9 @@ namespace DooFast.Controllers
         public List<ComidaBEforList> Get(int id)
         {
             ComidaBL obj = new ComidaBL();
-            List<ComidaBEforList> comida = new List<ComidaBEforList>();
+            _ = new List<ComidaBEforList>();
 
-            comida = obj.listarComida(id);
+            List<ComidaBEforList> comida = obj.listarComida(id);
 
             return comida;
         }
@@ -49,7 +49,7 @@ namespace DooFast.Controllers
             }
             catch (Exception ex)
             {
-                return msg = "Algo salio mal, verificar el body del POST!!";
+                return "Algo salio mal, verificar el body del POST!!";
 
                 throw ex;
             }
@@ -72,7 +72,7 @@ namespace DooFast.Controllers
             }
             catch (Exception ex)
             {
-                return msg = "Algo salio mal, verificar el body del PUT!!";
+                return "Algo salio mal, verificar el body del PUT!!";
 
                 throw ex;
             }
@@ -93,7 +93,7 @@ namespace DooFast.Controllers
             }
             catch (Exception ex)
             {
-                return msg = "Algo salio mal!";
+                return "Algo salio mal!";
 
                 throw ex;
             }

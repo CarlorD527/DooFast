@@ -15,7 +15,7 @@ namespace DooFastTest
         public void Get()
         {
             ComidaBL obj = new ComidaBL();
-            List<ComidaBEforList> lstComidas = new List<ComidaBEforList>();
+            _ = new List<ComidaBEforList>();
 
             var result = obj.listarComidas();
             Assert.AreEqual(15, result.Count());

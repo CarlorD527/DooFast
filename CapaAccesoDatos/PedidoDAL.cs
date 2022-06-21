@@ -82,7 +82,9 @@ namespace CapaAccesoDatos
             else
             {
 
-                return null;
+                List<PedidoBEforListCocina> lstPedidosVacia = new List<PedidoBEforListCocina>();
+
+                return lstPedidosVacia;
             }
         }
 
@@ -132,8 +134,9 @@ namespace CapaAccesoDatos
                     }
                     else
                     {
+                        List<PedidoBEforListPorMesa> lstOrdenesPorMesaVacia = new List<PedidoBEforListPorMesa>();
 
-                        return null;
+                        return lstOrdenesPorMesaVacia;
                     }
                 }
 

@@ -24,17 +24,15 @@ namespace DooFast.Controllers
             List<List<ComidaBEforList>> lstProductos = new List<List<ComidaBEforList>>();
 
             ComidaBL obj = new ComidaBL();
-            List<ComidaBEforList> lstEntradas = new List<ComidaBEforList>();
-            lstEntradas = obj.listarEntradas();
+            _ = new List<ComidaBEforList>();
+            List<ComidaBEforList> lstEntradas = obj.listarEntradas();
+            _ = new List<ComidaBEforList>();
 
-            List<ComidaBEforList> lstSegundos = new List<ComidaBEforList>();
-            lstSegundos = obj.listarSegundos();
-
-            List<ComidaBEforList> lstBebidas = new List<ComidaBEforList>();
-            lstBebidas = obj.listarBebidas();
-
-            List<ComidaBEforList> lstPostres = new List<ComidaBEforList>();
-            lstPostres = obj.listarPostres();
+            List<ComidaBEforList> lstSegundos = obj.listarSegundos();
+            _ = new List<ComidaBEforList>();
+            List<ComidaBEforList> lstBebidas = obj.listarBebidas();
+            _ = new List<ComidaBEforList>();
+            List<ComidaBEforList> lstPostres = obj.listarPostres();
 
             lstProductos.Add(lstEntradas);
             lstProductos.Add(lstSegundos);

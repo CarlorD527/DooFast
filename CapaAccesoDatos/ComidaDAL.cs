@@ -261,7 +261,8 @@ namespace CapaAccesoDatos
             }
             else
             {
-                return null;
+                List<ComidaBEforList> lstSegundosVacio = new List<ComidaBEforList>();
+                return lstSegundosVacio;
             }
         }
 
@@ -292,7 +293,8 @@ namespace CapaAccesoDatos
             else
             {
 
-                return null;
+                List<ComidaBEforList> lstBebidasVacio = new List<ComidaBEforList>();
+                return lstBebidasVacio;
             }
         }
 
@@ -323,7 +325,8 @@ namespace CapaAccesoDatos
             else
             {
 
-                return null;
+                List<ComidaBEforList> lstPostresVacio = new List<ComidaBEforList>();
+                return lstPostresVacio;
             }
         }
 
