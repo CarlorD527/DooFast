@@ -4,9 +4,10 @@ using DooFast.Controllers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 
-namespace DooFastTest
+namespace UnitTestDooFast
 {
     [TestClass]
     public class UnitTest1
@@ -14,11 +15,8 @@ namespace DooFastTest
         [TestMethod]
         public void Get()
         {
-            ComidaBL obj = new ComidaBL();
-            _ = new List<ComidaBEforList>();
+            
 
-            var result = obj.listarComidas();
-            Assert.AreEqual(15, result.Count());
-        }
+    }
     }
 }

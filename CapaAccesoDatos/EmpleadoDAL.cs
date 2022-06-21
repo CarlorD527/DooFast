@@ -11,7 +11,7 @@ namespace CapaAccesoDatos
 {
     public class EmpleadoDal
     {
-        private String cnxStr = ConfigurationManager.ConnectionStrings["cnx"].ConnectionString;
+        private readonly  String cnxStr = ConfigurationManager.ConnectionStrings["cnx"].ConnectionString;
 
         public bool Add(EmpleadoBE obj)
         {

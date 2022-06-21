@@ -13,7 +13,7 @@ namespace CapaAccesoDatos
     public class ComidaDal
     {
 
-        private String cnxStr = ConfigurationManager.ConnectionStrings["cnx"].ConnectionString;
+        private readonly String cnxStr = ConfigurationManager.ConnectionStrings["cnx"].ConnectionString;
 
         // Crear comida 
         public bool Add(ComidaBE obj) {

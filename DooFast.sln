@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapaAccesoDatos", "CapaAcce
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapaNegocio", "CapaNegocio\CapaNegocio.csproj", "{4D7A3DE8-B4BD-46FE-AD93-8ECB981B61B6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestDooFast", "UnitTestDooFast\UnitTestDooFast.csproj", "{CE565019-2167-4B3E-8562-56706FE25176}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{4D7A3DE8-B4BD-46FE-AD93-8ECB981B61B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4D7A3DE8-B4BD-46FE-AD93-8ECB981B61B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4D7A3DE8-B4BD-46FE-AD93-8ECB981B61B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CE565019-2167-4B3E-8562-56706FE25176}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE565019-2167-4B3E-8562-56706FE25176}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE565019-2167-4B3E-8562-56706FE25176}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE565019-2167-4B3E-8562-56706FE25176}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
