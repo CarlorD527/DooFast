@@ -1,0 +1,40 @@
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROCEDURE [dbo].[usp_CrearCarta]
+	@idRestaurante INT,
+	@nombreCarta VARCHAR(40)
+AS
+BEGIN
+	INSERT INTO Cartas(idRestaurante, nombreCarta, fechaCreacion, estado)
+	VALUES (
+		@idRestaurante,
+		@nombreCarta,
+		SYSDATETIME(),
+		'activo'
+		)
+END
+
+CREATE PROCEDURE [dbo].[usp_EliminarCarta]
+	@idCarta INT
+AS
+BEGIN
+	UPDATE Cartas
+		SET estado = 'inactivo'
+		WHERE idCarta = @idCarta
+END
+
+CREATE PROCEDURE [dbo].[usp_ActualizarCarta]
+	@idCarta INT,
+	@idRestaurante INT,
+	@nombreCarta VARCHAR(40),
+	@estado VARCHAR(40)
+AS
+BEGIN
+	UPDATE Cartas
+		SET idRestaurante = @idRestaurante, nombreCarta = @nombreCarta, 
+		estado = @estado
+	WHERE idCarta = @idCarta;
+END

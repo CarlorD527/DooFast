@@ -19,47 +19,79 @@ namespace DooFast.Controllers
     public class CartaController : ApiController
     {
         // GET: api/Carta
-        public List<List<ComidaBEforList>> Get()
+        public List<CartaBEforList> Get()
         {
-            List<List<ComidaBEforList>> lstProductos = new List<List<ComidaBEforList>>();
+            CartaBL obj = new CartaBL();
+            _ = new List<PedidoBEforListCocina>();
 
-            ComidaBL obj = new ComidaBL();
-            _ = new List<ComidaBEforList>();
-            List<ComidaBEforList> lstEntradas = obj.listarEntradas();
-            _ = new List<ComidaBEforList>();
+            List<CartaBEforList> lstCartas = obj.listarCartas();
 
-            List<ComidaBEforList> lstSegundos = obj.listarSegundos();
-            _ = new List<ComidaBEforList>();
-            List<ComidaBEforList> lstBebidas = obj.listarBebidas();
-            _ = new List<ComidaBEforList>();
-            List<ComidaBEforList> lstPostres = obj.listarPostres();
-
-            lstProductos.Add(lstEntradas);
-            lstProductos.Add(lstSegundos);
-            lstProductos.Add(lstBebidas);
-            lstProductos.Add(lstPostres);
-
-            return lstProductos;
+            return lstCartas;
         }
-        //    // GET: api/Carta/5
-        //    /*public string Get(int id)
-        //    {
-        //        return "value";
-        //    }
 
-        //    // POST: api/Carta
-        //    public void Post([FromBody]string value)
-        //    {
-        //    }
+        // POST: api/Carta
+        public string Post(CartaBE Carta)
+        {
+            string msg;
 
-        //    // PUT: api/Carta/5
-        //    public void Put(int id, [FromBody]string value)
-        //    {
-        //    }
+            CartaBL obj = new CartaBL();
 
-        //    // DELETE: api/Carta/5
-        //    public void Delete(int id)
-        //    {
-        //    }*/
+            try
+            {
+                obj.Add(Carta);
+                return msg = "Carta registrada con exito!";
+            }
+            catch (Exception ex)
+            {
+                return "Algo salio mal, verificar el body del POST!!";
+
+                throw ex;
+            }
+        }
+
+        // PUT: api/Carta
+        public string Put(CartaBEforUpdate Carta)
+        {
+            string msg;
+
+            CartaBL obj = new CartaBL();
+
+            try
+            {
+                obj.Update(Carta);
+
+                return msg = "Carta actualizada con exito!";
+            }
+            catch (Exception ex)
+            {
+                return "Algo salio mal, verificar el body del PUT!!";
+
+                throw ex;
+            }
+
+        }
+
+        // DELETE: api/Carta
+        /*
+        public string Delete(int id)
+        {
+            string msg;
+
+            CartaBL obj = new CartaBL();
+
+            try
+            {
+                obj.Delete(id);
+                return msg = "Carta eliminada con exito!";
+            }
+            catch (Exception ex)
+            {
+                return "Algo salio mal!";
+
+                throw ex;
+            }
+        }
+        */
+
     }
 }
