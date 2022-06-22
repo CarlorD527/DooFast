@@ -4,3 +4,9 @@ C:\Users\Rolf\source\repos\DooFast\CapaEntidades\obj\Debug\CapaEntidades.csproj.
 C:\Users\Rolf\source\repos\DooFast\CapaEntidades\obj\Debug\CapaEntidades.csproj.CoreCompileInputs.cache
 C:\Users\Rolf\source\repos\DooFast\CapaEntidades\obj\Debug\CapaEntidades.dll
 C:\Users\Rolf\source\repos\DooFast\CapaEntidades\obj\Debug\CapaEntidades.pdb
+E:\Doofast-repo\CapaEntidades\bin\Debug\CapaEntidades.dll
+E:\Doofast-repo\CapaEntidades\bin\Debug\CapaEntidades.pdb
+E:\Doofast-repo\CapaEntidades\obj\Debug\CapaEntidades.csproj.AssemblyReference.cache
+E:\Doofast-repo\CapaEntidades\obj\Debug\CapaEntidades.csproj.CoreCompileInputs.cache
+E:\Doofast-repo\CapaEntidades\obj\Debug\CapaEntidades.dll
+E:\Doofast-repo\CapaEntidades\obj\Debug\CapaEntidades.pdb

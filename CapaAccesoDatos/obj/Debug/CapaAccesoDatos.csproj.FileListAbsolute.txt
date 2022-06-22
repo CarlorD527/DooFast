@@ -7,3 +7,12 @@ C:\Users\Rolf\source\repos\DooFast\CapaAccesoDatos\obj\Debug\CapaAccesoDatos.csp
 C:\Users\Rolf\source\repos\DooFast\CapaAccesoDatos\obj\Debug\CapaAccesoDatos.csproj.CopyComplete
 C:\Users\Rolf\source\repos\DooFast\CapaAccesoDatos\obj\Debug\CapaAccesoDatos.dll
 C:\Users\Rolf\source\repos\DooFast\CapaAccesoDatos\obj\Debug\CapaAccesoDatos.pdb
+E:\Doofast-repo\CapaAccesoDatos\bin\Debug\CapaAccesoDatos.dll
+E:\Doofast-repo\CapaAccesoDatos\bin\Debug\CapaAccesoDatos.pdb
+E:\Doofast-repo\CapaAccesoDatos\bin\Debug\CapaEntidades.dll
+E:\Doofast-repo\CapaAccesoDatos\bin\Debug\CapaEntidades.pdb
+E:\Doofast-repo\CapaAccesoDatos\obj\Debug\CapaAccesoDatos.csproj.AssemblyReference.cache
+E:\Doofast-repo\CapaAccesoDatos\obj\Debug\CapaAccesoDatos.csproj.CoreCompileInputs.cache
+E:\Doofast-repo\CapaAccesoDatos\obj\Debug\CapaAccesoDatos.csproj.CopyComplete
+E:\Doofast-repo\CapaAccesoDatos\obj\Debug\CapaAccesoDatos.dll
+E:\Doofast-repo\CapaAccesoDatos\obj\Debug\CapaAccesoDatos.pdb

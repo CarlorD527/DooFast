@@ -9,3 +9,14 @@ C:\Users\Rolf\source\repos\DooFast\CapaNegocio\obj\Debug\CapaNegocio.csproj.Core
 C:\Users\Rolf\source\repos\DooFast\CapaNegocio\obj\Debug\CapaNegocio.csproj.CopyComplete
 C:\Users\Rolf\source\repos\DooFast\CapaNegocio\obj\Debug\CapaNegocio.dll
 C:\Users\Rolf\source\repos\DooFast\CapaNegocio\obj\Debug\CapaNegocio.pdb
+E:\Doofast-repo\CapaNegocio\bin\Debug\CapaNegocio.dll
+E:\Doofast-repo\CapaNegocio\bin\Debug\CapaNegocio.pdb
+E:\Doofast-repo\CapaNegocio\bin\Debug\CapaAccesoDatos.dll
+E:\Doofast-repo\CapaNegocio\bin\Debug\CapaEntidades.dll
+E:\Doofast-repo\CapaNegocio\bin\Debug\CapaAccesoDatos.pdb
+E:\Doofast-repo\CapaNegocio\bin\Debug\CapaEntidades.pdb
+E:\Doofast-repo\CapaNegocio\obj\Debug\CapaNegocio.csproj.AssemblyReference.cache
+E:\Doofast-repo\CapaNegocio\obj\Debug\CapaNegocio.csproj.CoreCompileInputs.cache
+E:\Doofast-repo\CapaNegocio\obj\Debug\CapaNegocio.csproj.CopyComplete
+E:\Doofast-repo\CapaNegocio\obj\Debug\CapaNegocio.dll
+E:\Doofast-repo\CapaNegocio\obj\Debug\CapaNegocio.pdb
