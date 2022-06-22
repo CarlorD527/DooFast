@@ -15,7 +15,9 @@ namespace DooFast.Controllers.Tests
     [TestClass()]
     public class UnitTest1
     {
-      
+
+        [TestMethod()]
+        //[UrlToTest("https://localhost:44301/")
         public void GetComidaTest()
         {
             ComidasController comidas = new ComidasController();
