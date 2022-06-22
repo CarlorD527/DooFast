@@ -49,40 +49,40 @@ namespace CapaAccesoDatos
         }
 
         //Listar Cartas
-        public List<CartaBEforList> listarCartas()
-        {
+        //public List<CartaBEforList> listarCartas()
+        //{
 
-            SqlDataAdapter da = new SqlDataAdapter("usp_ListarCartas", cnxStr);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
+        //    SqlDataAdapter da = new SqlDataAdapter("usp_ListarCartas", cnxStr);
+        //    DataTable dt = new DataTable();
+        //    da.Fill(dt);
 
-            List<CartaBEforList> lstCartas = new List<CartaBEforList>();
-            if (dt.Rows.Count > 0)
-            {
+        //    List<CartaBEforList> lstCartas = new List<CartaBEforList>();
+        //    if (dt.Rows.Count > 0)
+        //    {
 
-                for (int i = 0; i < dt.Rows.Count; i++)
-                {
-                    CartaBEforList Carta = new CartaBEforList();
+        //        for (int i = 0; i < dt.Rows.Count; i++)
+        //        {
+        //            CartaBEforList Carta = new CartaBEforList();
 
-                    Carta.idCarta = Convert.ToInt32(dt.Rows[i]["idCarta"]);
-                    Carta.nombreLocal = dt.Rows[i]["nombreLocal"].ToString();
-                    Carta.nombreCarta = dt.Rows[i]["nombreCarta"].ToString();
-                    Carta.fechaCreacion = Convert.ToDateTime(dt.Rows[i]["fechaCreacion"]);
-                    Carta.estado = dt.Rows[i]["estado"].ToString();
+        //            Carta.idCarta = Convert.ToInt32(dt.Rows[i]["idCarta"]);
+        //            Carta.nombreLocal = dt.Rows[i]["nombreLocal"].ToString();
+        //            Carta.nombreCarta = dt.Rows[i]["nombreCarta"].ToString();
+        //            Carta.fechaCreacion = Convert.ToDateTime(dt.Rows[i]["fechaCreacion"]);
+        //            Carta.estado = dt.Rows[i]["estado"].ToString();
 
-                    lstCartas.Add(Carta);
-                }
-            }
-            if (lstCartas.Count > 0)
-            {
-                return lstCartas;
-            }
-            else
-            {
-                List<CartaBEforList> lstCartasVacia = new List<CartaBEforList>();
-                return lstCartasVacia;
-            }
-        }
+        //            lstCartas.Add(Carta);
+        //        }
+        //    }
+        //    if (lstCartas.Count > 0)
+        //    {
+        //        return lstCartas;
+        //    }
+        //    else
+        //    {
+        //        List<CartaBEforList> lstCartasVacia = new List<CartaBEforList>();
+        //        return lstCartasVacia;
+        //    }
+        //}
 
         //Actualizar Carta
         public bool Update(CartaBEforUpdate obj)
@@ -100,7 +100,7 @@ namespace CapaAccesoDatos
                     cmd.Parameters.Add("@idCarta", SqlDbType.Int).Value = obj.idCarta;
                     cmd.Parameters.Add("@idRestaurante", SqlDbType.Int).Value = obj.idRestaurante;
                     cmd.Parameters.Add("@nombreCarta", SqlDbType.VarChar).Value = obj.nombreCarta;
-                    cmd.Parameters.Add("@estado", SqlDbType.VarChar).Value = obj.estado;
+               
                     cn.Open();
                     cmd.ExecuteNonQuery();
                     state = true;

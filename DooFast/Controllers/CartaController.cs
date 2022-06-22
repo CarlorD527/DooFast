@@ -19,18 +19,30 @@ namespace DooFast.Controllers
     public class CartaController : ApiController
     {
         // GET: api/Carta
-        public List<CartaBEforList> Get()
+        public List<List<ComidaBEforList>> Get()
         {
-            CartaBL obj = new CartaBL();
-            _ = new List<PedidoBEforListCocina>();
+            List<List<ComidaBEforList>> lstProductos = new List<List<ComidaBEforList>>();
 
-            List<CartaBEforList> lstCartas = obj.listarCartas();
+            ComidaBL obj = new ComidaBL();
+            _ = new List<ComidaBEforList>();
+            List<ComidaBEforList> lstEntradas = obj.listarEntradas();
+            _ = new List<ComidaBEforList>();
 
-            return lstCartas;
+            List<ComidaBEforList> lstSegundos = obj.listarSegundos();
+            _ = new List<ComidaBEforList>();
+            List<ComidaBEforList> lstBebidas = obj.listarBebidas();
+            _ = new List<ComidaBEforList>();
+            List<ComidaBEforList> lstPostres = obj.listarPostres();
+
+            lstProductos.Add(lstEntradas);
+            lstProductos.Add(lstSegundos);
+            lstProductos.Add(lstBebidas);
+            lstProductos.Add(lstPostres);
+
+            return lstProductos;
         }
-
-        // POST: api/Carta
-        public string Post(CartaBE Carta)
+            // POST: api/Carta
+            public string Post(CartaBE Carta)
         {
             string msg;
 
@@ -72,7 +84,7 @@ namespace DooFast.Controllers
         }
 
         // DELETE: api/Carta
-        /*
+        
         public string Delete(int id)
         {
             string msg;
@@ -91,7 +103,7 @@ namespace DooFast.Controllers
                 throw ex;
             }
         }
-        */
+        
 
     }
 }

@@ -26,11 +26,11 @@ namespace CapaEntidades
     }
     public class CartaBEforUpdate
     {
-        public string idCarta { get; set; }
+        public int idCarta { get; set; }
 
         public int idRestaurante { get; set; }
         public string nombreCarta { get; set; }
-        public string estado { get; set; }
+ 
 
     }
 

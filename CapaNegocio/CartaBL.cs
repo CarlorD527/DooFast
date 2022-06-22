@@ -28,23 +28,23 @@ namespace CapaNegocio
             }
             return state;
         }
-        public List<CartaBEforList> listarCartas()
-        {
+        //public List<CartaBEforList> listarCartas()
+        //{
 
-            try
-            {
-                List<CartaBEforList> lstCartas = new List<CartaBEforList>();
-                lstCartas = CartaDALC.listarCartas();
+        //    try
+        //    {
+        //        List<CartaBEforList> lstCartas = new List<CartaBEforList>();
+        //        lstCartas = CartaDALC.listarCartas();
 
-                return lstCartas;
-            }
-            catch (Exception e)
-            {
+        //        return lstCartas;
+        //    }
+        //    catch (Exception e)
+        //    {
 
-                throw new Exception(e.Message);
-            }
+        //        throw new Exception(e.Message);
+        //    }
 
-        }
+        //}
         public bool Update (CartaBEforUpdate obj)
         {
 
