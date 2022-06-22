@@ -49,40 +49,10 @@ namespace CapaAccesoDatos
         }
 
         //Listar Cartas
-        //public List<CartaBEforList> listarCartas()
-        //{
 
-        //    SqlDataAdapter da = new SqlDataAdapter("usp_ListarCartas", cnxStr);
-        //    DataTable dt = new DataTable();
-        //    da.Fill(dt);
 
-        //    List<CartaBEforList> lstCartas = new List<CartaBEforList>();
-        //    if (dt.Rows.Count > 0)
-        //    {
 
-        //        for (int i = 0; i < dt.Rows.Count; i++)
-        //        {
-        //            CartaBEforList Carta = new CartaBEforList();
-
-        //            Carta.idCarta = Convert.ToInt32(dt.Rows[i]["idCarta"]);
-        //            Carta.nombreLocal = dt.Rows[i]["nombreLocal"].ToString();
-        //            Carta.nombreCarta = dt.Rows[i]["nombreCarta"].ToString();
-        //            Carta.fechaCreacion = Convert.ToDateTime(dt.Rows[i]["fechaCreacion"]);
-        //            Carta.estado = dt.Rows[i]["estado"].ToString();
-
-        //            lstCartas.Add(Carta);
-        //        }
-        //    }
-        //    if (lstCartas.Count > 0)
-        //    {
-        //        return lstCartas;
-        //    }
-        //    else
-        //    {
-        //        List<CartaBEforList> lstCartasVacia = new List<CartaBEforList>();
-        //        return lstCartasVacia;
-        //    }
-        //}
+        //Listar 1 Carta
 
         //Actualizar Carta
         public bool Update(CartaBEforUpdate obj)
@@ -144,6 +114,20 @@ namespace CapaAccesoDatos
 
             return state;
         }
+        public void ObtenerCamposDt(DataTable dt, ComidaBEforList comida, int i)
+        {
+
+            comida.idComida = Convert.ToInt32(dt.Rows[i]["idComida"]);
+            comida.nombreComida = dt.Rows[i]["nombreComida"].ToString();
+            comida.nombreCategoria = dt.Rows[i]["nombreCategoria"].ToString();
+            comida.precio = Convert.ToDouble(dt.Rows[i]["precio"]);
+            comida.costo = Convert.ToDouble(dt.Rows[i]["costo"]);
+            comida.imagen = dt.Rows[i]["imagen"].ToString();
+            comida.fechaCreacion = Convert.ToDateTime(dt.Rows[i]["fechaCreacion"]);
+            comida.estado = dt.Rows[i]["estado"].ToString();
+
+        }
+
 
     }
 }

@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CartaBL.cs" />
+    <Compile Include="ComidaCartaBL.cs" />
     <Compile Include="EmpleadoBL.cs" />
     <Compile Include="ComidaBL.cs" />
     <Compile Include="PedidoBL.cs" />

@@ -18,30 +18,8 @@ namespace DooFast.Controllers
     [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class CartaController : ApiController
     {
-        // GET: api/Carta
-        public List<List<ComidaBEforList>> Get()
-        {
-            List<List<ComidaBEforList>> lstProductos = new List<List<ComidaBEforList>>();
-
-            ComidaBL obj = new ComidaBL();
-            _ = new List<ComidaBEforList>();
-            List<ComidaBEforList> lstEntradas = obj.listarEntradas();
-            _ = new List<ComidaBEforList>();
-
-            List<ComidaBEforList> lstSegundos = obj.listarSegundos();
-            _ = new List<ComidaBEforList>();
-            List<ComidaBEforList> lstBebidas = obj.listarBebidas();
-            _ = new List<ComidaBEforList>();
-            List<ComidaBEforList> lstPostres = obj.listarPostres();
-
-            lstProductos.Add(lstEntradas);
-            lstProductos.Add(lstSegundos);
-            lstProductos.Add(lstBebidas);
-            lstProductos.Add(lstPostres);
-
-            return lstProductos;
-        }
-            // POST: api/Carta
+      
+        // POST: api/Carta
             public string Post(CartaBE Carta)
         {
             string msg;

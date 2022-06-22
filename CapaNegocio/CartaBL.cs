@@ -14,6 +14,7 @@ namespace CapaNegocio
         // CRUD DE CartaS
         private CartaDal CartaDALC = new CartaDal();
 
+       
         public bool Add(CartaBE obj)
         {
             bool state = false;
@@ -28,23 +29,7 @@ namespace CapaNegocio
             }
             return state;
         }
-        //public List<CartaBEforList> listarCartas()
-        //{
-
-        //    try
-        //    {
-        //        List<CartaBEforList> lstCartas = new List<CartaBEforList>();
-        //        lstCartas = CartaDALC.listarCartas();
-
-        //        return lstCartas;
-        //    }
-        //    catch (Exception e)
-        //    {
-
-        //        throw new Exception(e.Message);
-        //    }
-
-        //}
+     
         public bool Update (CartaBEforUpdate obj)
         {
 
