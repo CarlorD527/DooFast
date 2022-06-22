@@ -55,3 +55,5 @@ C:\Users\Rolf\source\repos\DooFast\UnitTestDooFast\bin\Debug\es\System.Web.WebPa
 C:\Users\Rolf\source\repos\DooFast\UnitTestDooFast\bin\Debug\es\System.Web.WebPages.Razor.resources.dll
 C:\Users\Rolf\source\repos\DooFast\UnitTestDooFast\bin\Debug\es\System.Web.Razor.resources.dll
 C:\Users\Rolf\source\repos\DooFast\UnitTestDooFast\bin\Debug\es\System.Web.WebPages.Deployment.resources.dll
+C:\Users\Rolf\source\repos\DooFast\UnitTestDooFast\bin\Debug\System.Data.SqlClient.dll
+C:\Users\Rolf\source\repos\DooFast\UnitTestDooFast\bin\Debug\System.Data.SqlClient.xml
