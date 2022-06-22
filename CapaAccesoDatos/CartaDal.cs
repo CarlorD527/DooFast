@@ -16,7 +16,7 @@ namespace CapaAccesoDatos
         private readonly String cnxStr = ConfigurationManager.ConnectionStrings["cnx"].ConnectionString;
 
         // Crear Carta 
-        public bool Add(CartaBE obj) {
+        public bool Add(CartaBe obj) {
 
             bool state = false;
 

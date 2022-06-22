@@ -8,14 +8,14 @@ using System.Threading.Tasks;
 
 namespace CapaNegocio
 {
-    public class CartaBL
+    public class CartaBl
     {
 
         // CRUD DE CartaS
         private CartaDal CartaDALC = new CartaDal();
 
        
-        public bool Add(CartaBE obj)
+        public bool Add(CartaBe obj)
         {
             bool state = false;
             try

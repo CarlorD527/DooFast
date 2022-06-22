@@ -16,7 +16,7 @@ namespace CapaAccesoDatos
         private readonly String cnxStr = ConfigurationManager.ConnectionStrings["cnx"].ConnectionString;
 
         // Crear comida 
-        public bool Add(ComidaBE obj) {
+        public bool Add(ComidaBe obj) {
 
             bool state = false;
 

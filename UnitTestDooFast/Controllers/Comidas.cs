@@ -41,7 +41,7 @@ namespace DooFast.Controllers.Tests
 
             ComidasController comidas = new ComidasController();
 
-            ComidaBE comidaPrueba = new ComidaBE();
+            ComidaBe comidaPrueba = new ComidaBe();
 
             comidaPrueba.idCategoria = 1;
             comidaPrueba.nombreComida = "Ensalada de cebolla";

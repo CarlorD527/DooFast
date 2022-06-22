@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace CapaNegocio
 {
-    public class ComidaCartaBL
+    public class ComidaCartaBl
     {
         // CRUD DE CartaS
         private ComidaCartaDal ComidaCartaDALC = new ComidaCartaDal();

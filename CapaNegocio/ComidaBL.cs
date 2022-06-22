@@ -8,13 +8,13 @@ using System.Threading.Tasks;
 
 namespace CapaNegocio
 {
-    public class ComidaBL
+    public class ComidaBl
     {
 
         // CRUD DE COMIDAS
         private ComidaDal comidaDALC = new ComidaDal();
 
-        public bool Add(ComidaBE obj)
+        public bool Add(ComidaBe obj)
         {
             bool state = false;
             try

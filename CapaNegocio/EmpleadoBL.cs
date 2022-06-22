@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace CapaNegocio
 {
-    public class EmpleadoBL
+    public class EmpleadoBl
     {
         private EmpleadoDal empleadoDALC = new EmpleadoDal();
 
-        public bool Add(EmpleadoBE obj)
+        public bool Add(EmpleadoBe obj)
         {
             bool state = false;
             try
@@ -27,12 +27,12 @@ namespace CapaNegocio
             return state;
         }
 
-        public List<EmpleadoBE> listarEmpleados()
+        public List<EmpleadoBe> listarEmpleados()
         {
 
             try
             {
-                List<EmpleadoBE> lstEmpleados = new List<EmpleadoBE>();
+                List<EmpleadoBe> lstEmpleados = new List<EmpleadoBe>();
                 lstEmpleados = empleadoDALC.listarEmpleados();
 
                 return lstEmpleados;

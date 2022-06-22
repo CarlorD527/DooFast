@@ -8,13 +8,13 @@ using System.Threading.Tasks;
 
 namespace CapaNegocio
 {
-    public class PedidoBL
+    public class PedidoBl
     {
         // CRUD DE PEDIDO
         private PedidoDal pedidoDALC = new PedidoDal();
 
         //CREAR PEDIDO - TOMAR PEDIDO DEL CLIENTE
-        public bool Add(PedidoBE obj)
+        public bool Add(PedidoBe obj)
         {
             bool state = false;
             try

@@ -7,7 +7,7 @@ using static System.Net.Mime.MediaTypeNames;
 
 namespace CapaEntidades
 {
-    public class ComidaBE
+    public class ComidaBe
     {
 
         public string nombreComida{ get; set; }

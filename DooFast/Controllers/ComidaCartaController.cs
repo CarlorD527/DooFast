@@ -16,7 +16,7 @@ namespace DooFast.Controllers
         {
 
             //int IdCarta, luego se pondrá como parametro para obtener cualquier carta
-            ComidaCartaBL obj = new ComidaCartaBL();
+            ComidaCartaBl obj = new ComidaCartaBl();
             _ = new List<ComidaBEforList>();
 
             //De momento se pasa 1 porque trabajaremos con la primera carta
@@ -29,7 +29,7 @@ namespace DooFast.Controllers
         {
             string msg;
 
-            ComidaCartaBL obj = new ComidaCartaBL();
+            ComidaCartaBl obj = new ComidaCartaBl();
 
             try
             {

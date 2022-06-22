@@ -13,7 +13,7 @@ namespace CapaAccesoDatos
     {
         private readonly  String cnxStr = ConfigurationManager.ConnectionStrings["cnx"].ConnectionString;
 
-        public bool Add(EmpleadoBE obj)
+        public bool Add(EmpleadoBe obj)
         {
             bool state = false;
 
@@ -48,18 +48,18 @@ namespace CapaAccesoDatos
         }
 
 
-        public List<EmpleadoBE> listarEmpleados() {
+        public List<EmpleadoBe> listarEmpleados() {
 
             SqlDataAdapter da = new SqlDataAdapter("ListarEmpleados", cnxStr);
             DataTable dt = new DataTable();
             da.Fill(dt);
 
-            List<EmpleadoBE> lstEmpleados = new List<EmpleadoBE>();
+            List<EmpleadoBe> lstEmpleados = new List<EmpleadoBe>();
             if (dt.Rows.Count > 0) {
 
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
-                    EmpleadoBE emp = new EmpleadoBE();
+                    EmpleadoBe emp = new EmpleadoBe();
                     emp.idEmpleado = Convert.ToInt32(dt.Rows[i]["idEmpleado"]);
                     emp.nombre = dt.Rows[i]["Nombre"].ToString();
                     emp.tipoEmpleado = dt.Rows[i]["TipoEmpleado"].ToString();
@@ -76,7 +76,7 @@ namespace CapaAccesoDatos
                 return lstEmpleados;
             }
             else {
-                List<EmpleadoBE> lstEmpleadosVacia = new List<EmpleadoBE>();
+                List<EmpleadoBe> lstEmpleadosVacia = new List<EmpleadoBe>();
                 return lstEmpleadosVacia;
             }
         }

@@ -15,7 +15,7 @@ namespace DooFast.Controllers
         // GET: api/Ordenes
         public List<PedidoBEforListCocina> Get()
         {
-            PedidoBL obj = new PedidoBL();
+            PedidoBl obj = new PedidoBl();
             _ = new List<PedidoBEforListCocina>();
 
             List<PedidoBEforListCocina> lstComidas = obj.listarPedidos();
@@ -27,7 +27,7 @@ namespace DooFast.Controllers
         // GET: api/Ordenes/5
         public List<PedidoBEforListPorMesa> Get(int id)
         {
-            PedidoBL obj = new PedidoBL();
+            PedidoBl obj = new PedidoBl();
             _ = new List<PedidoBEforListPorMesa>();
 
             List<PedidoBEforListPorMesa> comida = obj.listarOrdenPorMesa(id);
@@ -36,11 +36,11 @@ namespace DooFast.Controllers
         }
 
         // POST: api/Ordenes
-        public string Post(PedidoBE pedido)
+        public string Post(PedidoBe pedido)
         {
             string msg;
 
-            PedidoBL obj = new PedidoBL();
+            PedidoBl obj = new PedidoBl();
 
             try
             {

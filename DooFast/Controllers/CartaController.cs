@@ -20,11 +20,11 @@ namespace DooFast.Controllers
     {
       
         // POST: api/Carta
-            public string Post(CartaBE Carta)
+            public string Post(CartaBe Carta)
         {
             string msg;
 
-            CartaBL obj = new CartaBL();
+            CartaBl obj = new CartaBl();
 
             try
             {
@@ -44,7 +44,7 @@ namespace DooFast.Controllers
         {
             string msg;
 
-            CartaBL obj = new CartaBL();
+            CartaBl obj = new CartaBl();
 
             try
             {
@@ -67,7 +67,7 @@ namespace DooFast.Controllers
         {
             string msg;
 
-            CartaBL obj = new CartaBL();
+            CartaBl obj = new CartaBl();
 
             try
             {

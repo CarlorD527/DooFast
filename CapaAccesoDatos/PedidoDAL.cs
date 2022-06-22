@@ -15,7 +15,7 @@ namespace CapaAccesoDatos
     {
         private readonly  String cnxStr = ConfigurationManager.ConnectionStrings["cnx"].ConnectionString;
 
-        public bool Add(PedidoBE obj)
+        public bool Add(PedidoBe obj)
         {
 
             bool state = false;
