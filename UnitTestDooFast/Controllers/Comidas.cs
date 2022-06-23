@@ -27,11 +27,8 @@ namespace DooFast.Controllers.Tests
             //test respuesta del servidor
 
             Assert.AreNotSame(comidas, System.Net.HttpStatusCode.NotFound);
-
-
             //test listado
             Assert.AreNotSame(null, result);
-            Assert.AreEqual(15, result.Count());
         }
 
         [TestMethod()]
