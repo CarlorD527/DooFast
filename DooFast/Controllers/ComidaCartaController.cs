@@ -6,11 +6,16 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace DooFast.Controllers
 {
+
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class ComidaCartaController : ApiController
     {
+     
+
         //// GET: api/ComidaCarta
         public List<List<ComidaBEforList>> Get()
         {

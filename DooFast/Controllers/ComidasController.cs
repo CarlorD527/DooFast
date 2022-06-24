@@ -10,9 +10,10 @@ using System.Web.Http.Cors;
 
 namespace DooFast.Controllers
 {
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class ComidasController : ApiController
     {
-        [EnableCors(origins: "*", headers: "*", methods: "*")]
+      
         // GET: api/Comidas
         public List<ComidaBEforList> Get()
         {
