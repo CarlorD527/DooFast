@@ -12,7 +12,7 @@ namespace CapaNegocio
     {
 
         // CRUD DE COMIDAS
-        private ComidaDal comidaDALC = new ComidaDal();
+        private readonly ComidaDal comidaDALC = new ComidaDal();
 
         public bool Add(ComidaBe obj)
         {
@@ -33,7 +33,7 @@ namespace CapaNegocio
 
             try
             {
-                List<ComidaBEforList> lstComidas = new List<ComidaBEforList>();
+                var lstComidas = new List<ComidaBEforList>();
                 lstComidas = comidaDALC.listarComidas();
 
                 return lstComidas;
@@ -50,7 +50,7 @@ namespace CapaNegocio
 
             try
             {
-                List<ComidaBEforList> lstComidas = new List<ComidaBEforList>();
+                var lstComidas = new List<ComidaBEforList>();
                 lstComidas = comidaDALC.listarComida(idComida);
 
                 return lstComidas;

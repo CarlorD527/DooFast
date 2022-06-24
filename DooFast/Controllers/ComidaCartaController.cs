@@ -32,14 +32,14 @@ namespace DooFast.Controllers
         // POST: api/ComidaCarta
         public string Post(CartaBEforComidaInsert Carta)
         {
-            string msg;
+          
 
             ComidaCartaBl obj = new ComidaCartaBl();
 
             try
             {
                 obj.AddComidaCarta(Carta);
-                return msg = "Como agregada a la carta con exito!";
+                return "Como agregada a la carta con exito!";
             }
             catch (Exception ex)
             {

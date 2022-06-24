@@ -11,7 +11,7 @@ namespace CapaNegocio
     public class PedidoBl
     {
         // CRUD DE PEDIDO
-        private PedidoDal pedidoDALC = new PedidoDal();
+        private readonly PedidoDal pedidoDALC = new PedidoDal();
 
         //CREAR PEDIDO - TOMAR PEDIDO DEL CLIENTE
         public bool Add(PedidoBe obj)

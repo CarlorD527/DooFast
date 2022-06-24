@@ -38,14 +38,14 @@ namespace DooFast.Controllers
         // POST: api/Ordenes
         public string Post(PedidoBe pedido)
         {
-            string msg;
+           
 
             PedidoBl obj = new PedidoBl();
 
             try
             {
                 obj.Add(pedido);
-                return msg = "Pedido registrado con exito";
+                return "Pedido registrado con exito";
             }
             catch (Exception ex)
             {

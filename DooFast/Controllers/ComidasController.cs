@@ -39,14 +39,14 @@ namespace DooFast.Controllers
         // POST: api/Comidas
         public string Post(ComidaBe comida)
         {
-            string msg;
+            
 
             ComidaBl obj = new ComidaBl();
 
             try
             {
                 obj.Add(comida);
-                return msg = "Comida registrada con exito!";
+                return "Comida registrada con exito!";
             }
             catch (Exception ex)
             {
@@ -59,7 +59,7 @@ namespace DooFast.Controllers
         // PUT: api/Comidas/5
         public string Put(ComidaBEforUpdate comida)
         {
-            string msg;
+           
 
             ComidaBl obj = new ComidaBl();
 
@@ -69,7 +69,7 @@ namespace DooFast.Controllers
 
              
                
-                return msg = "Comida actualizada con exito!";
+                return  "Comida actualizada con exito!";
             }
             catch (Exception ex)
             {
@@ -83,14 +83,14 @@ namespace DooFast.Controllers
         // DELETE: api/Comidas/5
         public string Delete(int id)
         {
-            string msg;
+            
 
             ComidaBl obj = new ComidaBl();
 
             try
             {
                 obj.Delete(id);
-                return msg = "Comida eliminada con exito!";
+                return  "Comida eliminada con exito!";
             }
             catch (Exception ex)
             {

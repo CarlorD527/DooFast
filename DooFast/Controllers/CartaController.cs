@@ -22,14 +22,14 @@ namespace DooFast.Controllers
         // POST: api/Carta
             public string Post(CartaBe Carta)
         {
-            string msg;
+            
 
             CartaBl obj = new CartaBl();
 
             try
             {
                 obj.Add(Carta);
-                return msg = "Carta registrada con exito!";
+                return  "Carta registrada con exito!";
             }
             catch (Exception ex)
             {
@@ -42,7 +42,7 @@ namespace DooFast.Controllers
         // PUT: api/Carta
         public string Put(CartaBEforUpdate Carta)
         {
-            string msg;
+        
 
             CartaBl obj = new CartaBl();
 
@@ -50,7 +50,7 @@ namespace DooFast.Controllers
             {
                 obj.Update(Carta);
 
-                return msg = "Carta actualizada con exito!";
+                return  "Carta actualizada con exito!";
             }
             catch (Exception ex)
             {
@@ -65,14 +65,14 @@ namespace DooFast.Controllers
         
         public string Delete(int id)
         {
-            string msg;
+           
 
             CartaBl obj = new CartaBl();
 
             try
             {
                 obj.Delete(id);
-                return msg = "Carta eliminada con exito!";
+                return "Carta eliminada con exito!";
             }
             catch (Exception ex)
             {

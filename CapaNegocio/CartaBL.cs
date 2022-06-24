@@ -12,7 +12,7 @@ namespace CapaNegocio
     {
 
         // CRUD DE CartaS
-        private CartaDal CartaDALC = new CartaDal();
+        private readonly CartaDal CartaDALC = new CartaDal();
 
        
         public bool Add(CartaBe obj)

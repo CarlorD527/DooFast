@@ -10,7 +10,7 @@ namespace CapaNegocio
 {
     public class EmpleadoBl
     {
-        private EmpleadoDal empleadoDALC = new EmpleadoDal();
+        private readonly EmpleadoDal empleadoDALC = new EmpleadoDal();
 
         public bool Add(EmpleadoBe obj)
         {
@@ -32,7 +32,7 @@ namespace CapaNegocio
 
             try
             {
-                List<EmpleadoBe> lstEmpleados = new List<EmpleadoBe>();
+                var lstEmpleados = new List<EmpleadoBe>();
                 lstEmpleados = empleadoDALC.listarEmpleados();
 
                 return lstEmpleados;

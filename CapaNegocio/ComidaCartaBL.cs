@@ -11,7 +11,7 @@ namespace CapaNegocio
     public class ComidaCartaBl
     {
         // CRUD DE CartaS
-        private ComidaCartaDal ComidaCartaDALC = new ComidaCartaDal();
+        private  readonly ComidaCartaDal ComidaCartaDALC = new ComidaCartaDal();
 
         public bool AddComidaCarta(CartaBEforComidaInsert obj)
         {
@@ -31,7 +31,6 @@ namespace CapaNegocio
         public List<List<ComidaBEforList>> listarComidaCarta(int idCarta)
         {
 
-            ComidaBEforList comidas = new ComidaBEforList();
             try
             {
                 //Lista ordenada
