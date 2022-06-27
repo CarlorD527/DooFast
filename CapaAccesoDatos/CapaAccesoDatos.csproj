@@ -31,6 +31,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Build.Utilities.v4.0" />
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
@@ -42,6 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DalUtil.cs" />
+    <Compile Include="UsuarioDal.cs" />
     <Compile Include="CartaDal.cs" />
     <Compile Include="ComidaCartaDal.cs" />
     <Compile Include="EmpleadoDal.cs" />

@@ -65,7 +65,7 @@ namespace CapaAccesoDatos
                 {
                     ComidaBEforList comida = new ComidaBEforList();
 
-                    ObtenerCamposDt(dt, comida, i);
+                    ObtenerCamposDt(dt, ref comida, i);
 
                     lstComidas.Add(comida);
                 }
@@ -108,7 +108,7 @@ namespace CapaAccesoDatos
                         {
                             ComidaBEforList comida = new ComidaBEforList();
 
-                            ObtenerCamposDt(dt, comida, i);
+                            ObtenerCamposDt(dt, ref comida, i);
 
                             lstComidas.Add(comida);
                         }
@@ -200,7 +200,7 @@ namespace CapaAccesoDatos
 
 
         //Obtener campos para listarlos en las funciones relacionadas a comida
-        public void ObtenerCamposDt(DataTable dt, ComidaBEforList comida, int i)
+        public void ObtenerCamposDt(DataTable dt, ref ComidaBEforList comida, int i)
         {
 
             comida.idComida = Convert.ToInt32(dt.Rows[i]["idComida"]);
