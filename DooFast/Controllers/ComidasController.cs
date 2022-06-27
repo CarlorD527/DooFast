@@ -15,12 +15,12 @@ namespace DooFast.Controllers
     {
       
         // GET: api/Comidas
-        public List<ComidaBEforList> Get()
+        public List<List<ComidaBEforList>> Get()
         {
             ComidaBl obj = new ComidaBl();
             _ = new List<ComidaBEforList>();
 
-            List<ComidaBEforList> lstComidas = obj.listarComidas();
+            List<List<ComidaBEforList>> lstComidas = obj.listarComidas();
 
             return lstComidas;
         }

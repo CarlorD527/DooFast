@@ -28,15 +28,41 @@ namespace CapaNegocio
             }
             return state;
         }
-        public List<ComidaBEforList> listarComidas()
+        public List<List<ComidaBEforList>> listarComidas()
         {
 
             try
             {
-                var lstComidas = new List<ComidaBEforList>();
-                lstComidas = comidaDALC.listarComidas();
+                //Lista ordenada
+                List<List<ComidaBEforList>> lstComidasOrdenado = new List<List<ComidaBEforList>>();
 
-                return lstComidas;
+                //Lista sin filtrar vacia 
+                List<ComidaBEforList> lstComidasSinFiltrar = new List<ComidaBEforList>();
+
+                //obteniendo lista de la BD 
+                lstComidasSinFiltrar = comidaDALC.listarComidas();
+
+                //Obteniendo la lista de entradas de la lista sin ordenar
+                List<ComidaBEforList> lstEntradas = lstComidasSinFiltrar.Where(x => x.nombreCategoria == "Entrada").ToList();
+
+                lstComidasOrdenado.Add(lstEntradas);
+
+                //obteniendo la lista de principales de la lista sin ordenar
+                List<ComidaBEforList> lstPrincipales = lstComidasSinFiltrar.Where(x => x.nombreCategoria == "Principal").ToList();
+
+                lstComidasOrdenado.Add(lstPrincipales);
+
+                //obteniendo la lista de bebidas de la lista sin ordenar
+                List<ComidaBEforList> lstBebidas = lstComidasSinFiltrar.Where(x => x.nombreCategoria == "Bebida").ToList();
+
+                lstComidasOrdenado.Add(lstBebidas);
+
+                //obteniendo la lista de bebidas de la lista sin ordenar
+                List<ComidaBEforList> lstPostres = lstComidasSinFiltrar.Where(x => x.nombreCategoria == "Postre").ToList();
+
+                lstComidasOrdenado.Add(lstPostres);
+
+                return lstComidasOrdenado;
             }
             catch (Exception e)
             {
