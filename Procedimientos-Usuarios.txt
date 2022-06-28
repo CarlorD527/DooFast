@@ -1,0 +1,115 @@
+INSERT INTO dbo.Roles(nombreRol)
+VALUES('Mozo','Cocina','Administrador');
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROCEDURE [dbo].[usp_CrearUsuario]
+	@idRestaurante INT,
+	@idRol INT,
+	@usuario VARCHAR(40),
+	@nombreUsuario VARCHAR(40),
+	@contrasenia VARCHAR(100),
+	@nroCelular VARCHAR(40),
+	@correoElectronico VARCHAR(40)
+
+
+AS
+BEGIN
+	INSERT INTO dbo.Usuarios(idRestaurante, idRol, usuario, nombreUsuario, contrasenia, nroCelular, correoElectronico, fechaCreacion)
+	VALUES(
+		@idRestaurante,
+		@idRol,
+		@usuario,
+		@nombreUsuario ,
+		@contrasenia,
+		@nroCelular,
+		@correoElectronico,
+		SYSDATETIME()
+	);
+END
+GO
+
+
+CREATE PROCEDURE [dbo].[usp_ActualizarUsuario]
+	@idUsuario INT,
+	@idRestaurante INT,
+	@idRol INT,
+	@usuario VARCHAR(40),
+	@nombreUsuario VARCHAR(40),
+	@contrasenia VARCHAR(100),
+	@nroCelular VARCHAR(40),
+	@correoElectronico VARCHAR(40)
+AS
+BEGIN
+	UPDATE Usuarios
+	SET
+		idRestaurante = @idRestaurante,
+		idRol = @idRol,
+		usuario = @usuario,
+		nombreUsuario = @nombreUsuario,
+		contrasenia = @contrasenia,
+		nroCelular = @nroCelular,
+		correoElectronico = @correoElectronico
+	WHERE idUsuario = @idUsuario;
+
+END
+GO
+
+CREATE PROCEDURE [dbo].[usp_ListarUsuarios]
+AS
+BEGIN
+	SELECT
+		idUsuario,
+		nombreLocal,
+		nombreRol,
+		usuario,
+		nombreUsuario,
+		contrasenia,
+		nroCelular,
+		correoElectronico,
+		Usuarios.fechaCreacion,
+		ultimoLogin
+
+	FROM Usuarios
+	JOIN Roles ON Usuarios.idRol = Roles.idRol
+	JOIN Restaurantes ON Usuarios.idRestaurante = Restaurantes.idRestaurante;
+END
+GO
+
+
+CREATE PROCEDURE [dbo].[usp_ListarUsuario]
+	@idUsuario INT
+AS
+BEGIN
+	SELECT
+		idUsuario,
+		nombreLocal,
+		nombreRol,
+		usuario,
+		nombreUsuario,
+		contrasenia,
+		nroCelular,
+		correoElectronico,
+		Usuarios.fechaCreacion,
+		ultimoLogin
+
+	FROM Usuarios
+	JOIN Roles ON Usuarios.idRol = Roles.idRol
+	JOIN Restaurantes ON Usuarios.idRestaurante = Restaurantes.idRestaurante
+	WHERE idUsuario = @idUsuario;
+END
+GO
+
+CREATE PROCEDURE [dbo].[usp_ActualizarUltimoLoginUsuario]
+	@idUsuario INT
+AS
+BEGIN
+	UPDATE Usuarios
+	SET
+		ultimoLogin = SYSDATETIME()
+	WHERE idUsuario = @idUsuario;
+END
+GO
