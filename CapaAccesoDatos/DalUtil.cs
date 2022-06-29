@@ -142,11 +142,19 @@ public class TablaValores
 
     public Object Get(string campo)
     {
-        return row[campo];
+        Object obj = row[campo];
+        return (obj == DBNull.Value) ? null : obj;
     }
     public int GetInt(string campo)
     {
-        return Convert.ToInt32(Get(campo));
+        try
+        {
+            return Convert.ToInt32(Get(campo));
+        } catch(Exception ex)
+        {
+            Trace.WriteLine(ex);
+            return 0;
+        }
     }
     public string GetString(string campo)
     {
@@ -154,10 +162,24 @@ public class TablaValores
     }
     public double GetDouble(string campo)
     {
-        return Convert.ToDouble(Get(campo));
+        try
+        {
+            return Convert.ToDouble(Get(campo));
+        }catch(Exception ex)
+        {
+            Trace.WriteLine(ex);
+            return 0;
+        }
     }
     public DateTime GetDateTime(string campo)
     {
-        return Convert.ToDateTime(Get(campo));
+        try
+        {
+            return Convert.ToDateTime(Get(campo));
+        }catch(Exception ex)
+        {
+            Trace.WriteLine(ex);
+            return DateTime.MinValue;
+        }
     }
 }
