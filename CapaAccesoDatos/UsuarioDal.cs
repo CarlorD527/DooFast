@@ -35,7 +35,7 @@ namespace CapaAccesoDatos
         public List<UsuarioBEforList> List()
         {
 
-            DataTable dt = DalUtil.LlenarTabla("usp_listarUsuarios");
+            DataTable dt = DalUtil.LlenarTabla("usp_ListarUsuarios");
 
             List<UsuarioBEforList> lstUsuarios = new List<UsuarioBEforList>();
             for (int i = 0; i < dt.Rows.Count; i++)
@@ -87,10 +87,13 @@ namespace CapaAccesoDatos
             return cmd.Ejecutar();
         }
 
-        //Borrado LOGICO de Usuario (???)
+        //Borrado DE USUARIO
         public bool Delete(int idUsuario)
         {
-            return false;
+            ComandoSqlDF cmd = new ComandoSqlDF("usp_EliminarUsuario");
+            cmd.AddInt("@idUsuario", idUsuario);
+
+            return cmd.Ejecutar();
         }
 
 

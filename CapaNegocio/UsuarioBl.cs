@@ -39,9 +39,5 @@ namespace CapaNegocio
             return UsuarioDALC.Delete(idUsuario);
         }
 
-
-        
-
-
     }
 }
