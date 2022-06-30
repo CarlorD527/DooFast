@@ -71,5 +71,11 @@ namespace CapaNegocio
             }
 
         }
+
+
+        public bool Delete(int idComida ,int idCarta)
+        {
+            return ComidaCartaDALC.Delete(idComida,idCarta);
+        }
     }
 }

@@ -104,6 +104,14 @@ namespace CapaAccesoDatos
         }
 
 
+        public bool Delete(int idComida, int idCarta)
+        {
+            ComandoSqlDF cmd = new ComandoSqlDF("usp_EliminarComidaDeCarta");
+            cmd.AddInt("@idComida", idComida);
+            cmd.AddInt("@idCarta", idCarta);
+            return cmd.Ejecutar();
+        }
+
         public void ObtenerCamposDt(DataTable dt, ComidaBEforList comida, int i)
         {
 
