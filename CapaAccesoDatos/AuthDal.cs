@@ -15,7 +15,7 @@ namespace CapaAccesoDatos
 
         private readonly String cnxStr = ConfigurationManager.ConnectionStrings["cnx"].ConnectionString;
         //Listar comidas
-        public List<AuthBe> AutenticarUsuario(string usuario , string contrasenia)
+        public List<AuthBeList> AutenticarUsuario(AuthBe obj)
         {
 
             try
@@ -26,21 +26,21 @@ namespace CapaAccesoDatos
                     SqlCommand cmd = new SqlCommand("usp_AutenticarUsuario", cn);
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.CommandTimeout = 600;
-                    cmd.Parameters.Add("@usuario", SqlDbType.VarChar).Value = usuario;
-                    cmd.Parameters.Add("@contrasenia", SqlDbType.VarChar).Value = contrasenia;
+                    cmd.Parameters.Add("@correo", SqlDbType.VarChar).Value = obj.correo;
+                    cmd.Parameters.Add("@contrasenia", SqlDbType.VarChar).Value = obj.contrasenia;
 
                     SqlDataAdapter sda = new SqlDataAdapter(cmd);
                     DataTable dt = new DataTable();
                     sda.Fill(dt);
 
-                    List<AuthBe> authlst = new List<AuthBe>();
+                    List<AuthBeList> authlst = new List<AuthBeList>();
 
                     if (dt.Rows.Count > 0)
                     {
 
                         for (int i = 0; i < dt.Rows.Count; i++)
                         {
-                            AuthBe authbe = new AuthBe();
+                            AuthBeList authbe = new AuthBeList();
 
                             ObtenerCamposDt(dt, ref authbe, i);
 
@@ -54,7 +54,7 @@ namespace CapaAccesoDatos
                     else
                     {
 
-                        List<AuthBe> authlstVacia = new List<AuthBe>();
+                        List<AuthBeList> authlstVacia = new List<AuthBeList>();
                         return authlstVacia;
                     }
                 }
@@ -65,7 +65,7 @@ namespace CapaAccesoDatos
                 throw new Exception(e.Message);
             }
         }
-        public void ObtenerCamposDt(DataTable dt, ref AuthBe authbe, int i)
+        public void ObtenerCamposDt(DataTable dt, ref AuthBeList authbe, int i)
         {
             authbe.rol= Convert.ToString(dt.Rows[i]["nombreRol"]);
         }

@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AuthBe.cs" />
     <Compile Include="UsuarioBe.cs" />
     <Compile Include="CartaBe.cs" />
     <Compile Include="ComidaCartaBe.cs" />

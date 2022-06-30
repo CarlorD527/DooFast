@@ -8,6 +8,13 @@ namespace CapaEntidades
 {
     public class AuthBe
     {
+    public string correo { get; set; }
+
+    public string contrasenia { get; set; }
+    }
+
+    public class AuthBeList {
+
         public string rol { get; set; }
     }
 }

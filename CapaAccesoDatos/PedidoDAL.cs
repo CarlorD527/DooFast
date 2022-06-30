@@ -150,5 +150,13 @@ namespace CapaAccesoDatos
         }
 
 
+        //eliminar pedido
+        public bool Delete(int idOrden)
+        {
+            ComandoSqlDF cmd = new ComandoSqlDF("usp_EliminarOrden");
+            cmd.AddInt("@idOrden", idOrden);
+            return cmd.Ejecutar();
+        }
+
     }
 }

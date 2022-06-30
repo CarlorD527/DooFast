@@ -12,14 +12,14 @@ namespace CapaNegocio
     {
 
         private readonly AuthDal authDALC = new AuthDal();
-        public List<AuthBe> listarRol(string nombre , string contrasenia)
+        public List<AuthBeList> listarRol(AuthBe auth)
         {
 
             try
             {
-                var lst = new List<AuthBe>();
+                var lst = new List<AuthBeList>();
 
-                lst = authDALC.AutenticarUsuario(nombre, contrasenia);
+                lst = authDALC.AutenticarUsuario(auth);
 
                 return lst;
             }

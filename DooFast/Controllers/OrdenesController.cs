@@ -60,9 +60,23 @@ namespace DooFast.Controllers
         //{
         //}
 
-        //// DELETE: api/Ordenes/5
-        //public void Delete(int id)
-        //{
-        //}
+        // DELETE: api/Ordenes/5
+        public string Delete(int id)
+        {
+            PedidoBl obj = new PedidoBl();
+
+            try
+            {
+                obj.Delete(id);
+
+                return "Orden retirada de la cola de ordenes con exito!";
+            }
+            catch (Exception ex)
+            {
+                return "Algo salio mal!";
+
+                throw ex;
+            }
+        }
     }
 }

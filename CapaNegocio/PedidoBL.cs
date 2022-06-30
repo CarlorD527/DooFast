@@ -65,5 +65,12 @@ namespace CapaNegocio
             }
 
         }
+
+        
+        //Eliminar pedido
+        public bool Delete(int idOrden)
+        {
+            return pedidoDALC.Delete(idOrden);
+        }
     }
 }

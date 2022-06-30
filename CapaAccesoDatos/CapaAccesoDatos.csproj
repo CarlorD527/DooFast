@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AuthDal.cs" />
     <Compile Include="DalUtil.cs" />
     <Compile Include="UsuarioDal.cs" />
     <Compile Include="CartaDal.cs" />
