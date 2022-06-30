@@ -12,8 +12,8 @@ using CapaEntidades;
 
 namespace DooFast.Controllers.Tests
 {
-    [TestClass()]
-    public class UnitTest1
+    [TestClass]
+    public class Comidas
     {
 
         [TestMethod()]
@@ -31,7 +31,7 @@ namespace DooFast.Controllers.Tests
             Assert.AreNotSame(null, result);
         }
 
-        [TestMethod()]
+        [TestMethod]
         //[UrlToTest("https://localhost:44301/")
         public void PostComdiaTest() {
 
@@ -49,8 +49,8 @@ namespace DooFast.Controllers.Tests
 
             List<ComidaBEforList> lstComidasVacia = new List<ComidaBEforList>();
             
-            Assert.AreNotSame(null, result);
-            Assert.AreNotSame(lstComidasVacia, result);
+        
+            Assert.AreSame("Comida registrada con exito!", result);
 
         }
     }

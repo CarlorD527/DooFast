@@ -41,7 +41,7 @@ namespace DooFast.Controllers
             try
             {
                 obj.AddComidaCarta(Carta);
-                return "Como agregada a la carta con exito!";
+                return "Comida agregada a la carta con exito!";
             }
             catch (Exception ex)
             {
