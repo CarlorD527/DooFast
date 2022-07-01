@@ -24,46 +24,25 @@ namespace CapaNegocio
             catch (Exception e)
             {
 
-                throw new Exception(e.Message);
+                Console.WriteLine(e.Message);
             }
             return state;
         }
         public List<PedidoBEforListCocina> listarPedidos()
         {
-
-            try
-            {
-                List<PedidoBEforListCocina> lstPedidos = new List<PedidoBEforListCocina>();
-                lstPedidos = pedidoDALC.listarPedidosCocina();
+                List<PedidoBEforListCocina> lstPedidos = pedidoDALC.listarPedidosCocina();
 
                 return lstPedidos;
-            }
-            catch (Exception e)
-            {
-
-                throw new Exception(e.Message);
-            }
-
         }
 
 
         public List<PedidoBEforListPorMesa> listarOrdenPorMesa(int idMesa)
         {
 
-            try
-            {
-                List<PedidoBEforListPorMesa> lstPedidosPorMesa= new List<PedidoBEforListPorMesa>();
-
-                lstPedidosPorMesa = pedidoDALC.listarPedidosPorMesa(idMesa);
+                List<PedidoBEforListPorMesa> lstPedidosPorMesa = pedidoDALC.listarPedidosPorMesa(idMesa);
 
                 return lstPedidosPorMesa;
-            }
-            catch (Exception e)
-            {
-
-                throw new Exception(e.Message);
-            }
-
+         
         }
 
         

@@ -24,23 +24,18 @@ namespace CapaNegocio
             catch (Exception e)
             {
 
-                throw new Exception(e.Message);
+                Console.WriteLine(e.Message);
             }
             return state;
         }
         public List<List<ComidaBEforList>> listarComidas()
         {
 
-            try
-            {
-                //Lista ordenada
+                  //Lista ordenada
                 List<List<ComidaBEforList>> lstComidasOrdenado = new List<List<ComidaBEforList>>();
 
-                //Lista sin filtrar vacia 
-                List<ComidaBEforList> lstComidasSinFiltrar = new List<ComidaBEforList>();
-
                 //obteniendo lista de la BD 
-                lstComidasSinFiltrar = comidaDALC.listarComidas();
+                List<ComidaBEforList> lstComidasSinFiltrar = comidaDALC.listarComidas();
 
                 //Obteniendo la lista de entradas de la lista sin ordenar
                 List<ComidaBEforList> lstEntradas = lstComidasSinFiltrar.Where(x => x.nombreCategoria == "Entrada").ToList();
@@ -64,29 +59,12 @@ namespace CapaNegocio
 
                 return lstComidasOrdenado;
             }
-            catch (Exception e)
-            {
-
-                throw new Exception(e.Message);
-            }
-
-        }
         public List<ComidaBEforList> listarComida(int idComida)
         {
-
-            try
-            {
-                var lstComidas = new List<ComidaBEforList>();
-                lstComidas = comidaDALC.listarComida(idComida);
+                List<ComidaBEforList> lstComidas = comidaDALC.listarComida(idComida);
 
                 return lstComidas;
-            }
-            catch (Exception e)
-            {
-
-                throw new Exception(e.Message);
-            }
-
+       
         }
         public bool Update (ComidaBEforUpdate obj)
         {
@@ -99,7 +77,7 @@ namespace CapaNegocio
             catch (Exception e)
             {
 
-                throw new Exception(e.Message);
+                Console.WriteLine(e.Message);
             }
             return state;
 
@@ -114,7 +92,7 @@ namespace CapaNegocio
             catch (Exception e)
             {
 
-                throw new Exception(e.Message);
+                Console.WriteLine(e.Message);
             }
             return state;
         }

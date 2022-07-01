@@ -25,7 +25,7 @@ namespace CapaNegocio
             catch (Exception e)
             {
 
-                throw new Exception(e.Message);
+                Console.WriteLine(e.Message);
             }
             return state;
         }
@@ -41,7 +41,7 @@ namespace CapaNegocio
             catch (Exception e)
             {
 
-                throw new Exception(e.Message);
+                Console.WriteLine(e.Message);
             }
             return state;
 
@@ -56,7 +56,7 @@ namespace CapaNegocio
             catch (Exception e)
             {
 
-                throw new Exception(e.Message);
+                Console.WriteLine(e.Message);
             }
             return state;
         }

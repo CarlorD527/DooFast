@@ -9,7 +9,7 @@ using System.Diagnostics;
 namespace CapaAccesoDatos
 
 {
-    public class DalUtil
+    public static class DalUtil
     {
         public static readonly String cnxStr = ConfigurationManager.ConnectionStrings["cnx"].ConnectionString;
         public static readonly int CommandTimeout = 700;
@@ -28,7 +28,7 @@ namespace CapaAccesoDatos
     {
         public String Comando { get; set; }
 
-        private List<ParametroSqlDF> parametros;
+        private readonly List<ParametroSqlDF>  parametros;
         public ComandoSqlDF(string comando)
         {
             parametros = new List<ParametroSqlDF>();

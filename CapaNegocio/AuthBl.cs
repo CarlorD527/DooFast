@@ -14,21 +14,9 @@ namespace CapaNegocio
         private readonly AuthDal authDALC = new AuthDal();
         public List<AuthBeList> listarRol(AuthBe auth)
         {
+            List<AuthBeList> lst = authDALC.AutenticarUsuario(auth);
 
-            try
-            {
-                var lst = new List<AuthBeList>();
-
-                lst = authDALC.AutenticarUsuario(auth);
-
-                return lst;
-            }
-            catch (Exception e)
-            {
-
-                throw new Exception(e.Message);
-            }
-
+            return lst;
         }
     }
 }

@@ -128,7 +128,9 @@ namespace CapaAccesoDatos
             catch (Exception e)
             {
 
-                throw new Exception(e.Message);
+                Console.WriteLine(e.Message);
+                List<ComidaBEforList> lstComidasVacia = new List<ComidaBEforList>();
+                return lstComidasVacia;
 
             }
 
@@ -162,7 +164,7 @@ namespace CapaAccesoDatos
             catch (Exception e)
             {
 
-                throw new Exception(e.Message);
+                Console.WriteLine(e.Message);
             }
 
             return state;
@@ -191,7 +193,7 @@ namespace CapaAccesoDatos
             catch (Exception e)
             {
 
-                throw new Exception(e.Message);
+                Console.WriteLine(e.Message);
             }
 
             return state;

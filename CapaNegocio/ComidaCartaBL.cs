@@ -23,24 +23,18 @@ namespace CapaNegocio
             catch (Exception e)
             {
 
-                throw new Exception(e.Message);
+                Console.WriteLine(e.Message);
             }
             return state;
         }
         //metodo para listar carta, de momento solo recibe el id 1 
         public List<List<ComidaBEforList>> listarComidaCarta(int idCarta)
-        {
-
-            try
-            {
+        {    
                 //Lista ordenada
                 List<List<ComidaBEforList>> lstComidasOrdenado = new List<List<ComidaBEforList>>();
 
-                //Lista sin filtrar vacia 
-                List<ComidaBEforList> lstComidasSinFiltrar = new List<ComidaBEforList>();
-
                 //obteniendo lista de la BD 
-                lstComidasSinFiltrar = ComidaCartaDALC.listarComidaCarta(idCarta);
+                List<ComidaBEforList> lstComidasSinFiltrar = ComidaCartaDALC.listarComidaCarta(idCarta);
 
                 //Obteniendo la lista de entradas de la lista sin ordenar
                 List<ComidaBEforList> lstEntradas = lstComidasSinFiltrar.Where(x => x.nombreCategoria == "Entrada").ToList();
@@ -63,12 +57,6 @@ namespace CapaNegocio
                 lstComidasOrdenado.Add(lstPostres);
 
                 return lstComidasOrdenado;
-            }
-            catch (Exception e)
-            {
-
-                throw new Exception(e.Message);
-            }
 
         }
 

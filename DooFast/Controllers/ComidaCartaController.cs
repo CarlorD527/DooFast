@@ -45,9 +45,9 @@ namespace DooFast.Controllers
             }
             catch (Exception ex)
             {
+                Console.WriteLine(ex.Message);
                 return "Algo salio mal, verificar el body del POST!!";
 
-                throw ex;
             }
         }
 
@@ -64,14 +64,14 @@ namespace DooFast.Controllers
             try
             {
                 obj.Delete(id, 1);
-
+               
                 return "Comida retirada de la carta con exito!";
             }
             catch (Exception ex)
             {
+                Console.WriteLine(ex.Message);
                 return "Algo salio mal!";
 
-                throw ex;
             }
         }
     }

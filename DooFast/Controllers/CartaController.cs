@@ -33,9 +33,8 @@ namespace DooFast.Controllers
             }
             catch (Exception ex)
             {
+                Console.WriteLine(ex.Message);
                 return "Algo salio mal, verificar el body del POST!!";
-
-                throw ex;
             }
         }
 
@@ -54,9 +53,10 @@ namespace DooFast.Controllers
             }
             catch (Exception ex)
             {
+
+                Console.WriteLine(ex.Message);
                 return "Algo salio mal, verificar el body del PUT!!";
 
-                throw ex;
             }
 
         }
@@ -76,9 +76,9 @@ namespace DooFast.Controllers
             }
             catch (Exception ex)
             {
+                Console.WriteLine(ex.Message);
                 return "Algo salio mal!";
 
-                throw ex;
             }
         }
         

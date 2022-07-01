@@ -25,11 +25,8 @@ namespace UnitTestDooFast.Controllers
         //[UrlToTest("https://localhost:44301/")
         public void GetOrdenTest()
         {
-            int idMesa;
-
-            OrdenesController orden = new OrdenesController();
-
-            idMesa = 1;
+        
+            OrdenesController orden = new OrdenesController(); 
 
             var result = orden.Get(1);
             //test respuesta del servidor
