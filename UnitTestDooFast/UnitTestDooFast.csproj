@@ -65,7 +65,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\Auth.cs" />
+    <Compile Include="Controllers\ComidaCarta.cs" />
     <Compile Include="Controllers\Comidas.cs" />
+    <Compile Include="Controllers\Ordenes.cs" />
+    <Compile Include="Controllers\Carta.cs" />
+    <Compile Include="Controllers\Usuarios.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

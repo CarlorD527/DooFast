@@ -25,13 +25,13 @@ namespace UnitTestDooFast.Controllers
         //[UrlToTest("https://localhost:44301/")
         public void GetOrdenTest()
         {
-            int idPedido;
+            int idMesa;
 
             OrdenesController orden = new OrdenesController();
 
-            idPedido = 23;
+            idMesa = 1;
 
-            var result = orden.Get(idPedido);
+            var result = orden.Get(1);
             //test respuesta del servidor
 
             Assert.AreNotSame(orden, System.Net.HttpStatusCode.NotFound);

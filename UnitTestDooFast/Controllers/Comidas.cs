@@ -18,7 +18,7 @@ namespace DooFast.Controllers.Tests
 
         [TestMethod()]
         //[UrlToTest("https://localhost:44301/")
-        public void GetComidaTest()
+        public void GetComidasTest()
         {
             ComidasController comidas = new ComidasController();
 
@@ -29,6 +29,24 @@ namespace DooFast.Controllers.Tests
             Assert.AreNotSame(comidas, System.Net.HttpStatusCode.NotFound);
             //test listado
             Assert.AreNotSame(null, result);
+        }
+        [TestMethod]
+        //[UrlToTest("https://localhost:44301/")
+        public void GetComidaTest()
+        {
+            int idComida;
+
+            OrdenesController orden = new OrdenesController();
+
+            idComida = 8;
+
+            var result = orden.Get(idComida);
+            //test respuesta del servidor
+
+            Assert.AreNotSame(result, System.Net.HttpStatusCode.NotFound);
+            //test listado
+            Assert.AreNotSame(null, result);
+
         }
 
         [TestMethod]
@@ -47,11 +65,10 @@ namespace DooFast.Controllers.Tests
 
             var result = comidas.Post(comidaPrueba);
 
-            List<ComidaBEforList> lstComidasVacia = new List<ComidaBEforList>();
-            
         
             Assert.AreSame("Comida registrada con exito!", result);
 
         }
+
     }
 }

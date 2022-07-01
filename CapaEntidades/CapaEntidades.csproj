@@ -45,7 +45,6 @@
     <Compile Include="UsuarioBe.cs" />
     <Compile Include="CartaBe.cs" />
     <Compile Include="ComidaCartaBe.cs" />
-    <Compile Include="EmpleadoBe.cs" />
     <Compile Include="PedidoBe.cs" />
     <Compile Include="ComidaBe.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
