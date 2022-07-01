@@ -62,7 +62,7 @@ namespace CapaAccesoDatos
             }
             catch (Exception e)
             {
-                throw new Exception(e.Message);
+                Console.WriteLine(e.Message);
             }
         }
         public void ObtenerCamposDt(DataTable dt, ref AuthBeList authbe, int i)
