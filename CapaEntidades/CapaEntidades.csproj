@@ -41,13 +41,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AuthBe.cs" />
-    <Compile Include="UsuarioBe.cs" />
-    <Compile Include="CartaBe.cs" />
-    <Compile Include="ComidaCartaBe.cs" />
-    <Compile Include="PedidoBe.cs" />
-    <Compile Include="ComidaBe.cs" />
+    <Compile Include="AuthEntities\AuthBe.cs" />
+    <Compile Include="AuthEntities\AuthBeList.cs" />
+    <Compile Include="CartaEntities\CartaBEforComidaInsert.cs" />
+    <Compile Include="CartaEntities\CartaBEforUpdate.cs" />
+    <Compile Include="ComidaEntities\ComidaBEforList.cs" />
+    <Compile Include="ComidaEntities\ComidaBEforUpdate.cs" />
+    <Compile Include="PedidoEntities\PedidoBEforListCocina.cs" />
+    <Compile Include="PedidoEntities\PedidoBEforListPorMesa.cs" />
+    <Compile Include="UsuarioEntities\UsuarioBe.cs" />
+    <Compile Include="CartaEntities\CartaBe.cs" />
+    <Compile Include="ComidaCartaEntities\ComidaCartaBe.cs" />
+    <Compile Include="PedidoEntities\PedidoBe.cs" />
+    <Compile Include="ComidaEntities\ComidaBe.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UsuarioEntities\UsuarioBEforList.cs" />
+    <Compile Include="UsuarioEntities\UsuarioBEforUpdate.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

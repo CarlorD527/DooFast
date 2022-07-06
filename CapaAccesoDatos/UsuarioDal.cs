@@ -1,4 +1,5 @@
 ﻿using CapaEntidades;
+using CapaEntidades.UsuarioEntities;
 using System;
 using System.Collections.Generic;
 using System.Configuration;

@@ -1,4 +1,5 @@
 ﻿using CapaEntidades;
+using CapaEntidades.UsuarioEntities;
 using CapaNegocio;
 using System.Collections.Generic;
 using System.Web.Http;

@@ -1,4 +1,5 @@
 ﻿using CapaEntidades;
+using CapaEntidades.CartaEntities;
 using DooFast.Controllers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;

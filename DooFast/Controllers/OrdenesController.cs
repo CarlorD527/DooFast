@@ -1,4 +1,5 @@
 ﻿using CapaEntidades;
+using CapaEntidades.PedidoBe;
 using CapaNegocio;
 using System;
 using System.Collections.Generic;

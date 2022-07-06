@@ -1,5 +1,6 @@
 ﻿using CapaAccesoDatos;
 using CapaEntidades;
+using CapaEntidades.ComidaEntities;
 using System;
 using System.Collections.Generic;
 using System.Linq;

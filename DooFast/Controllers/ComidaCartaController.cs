@@ -1,4 +1,6 @@
 ﻿using CapaEntidades;
+using CapaEntidades.CartaEntities;
+using CapaEntidades.ComidaEntities;
 using CapaNegocio;
 using System;
 using System.Collections.Generic;

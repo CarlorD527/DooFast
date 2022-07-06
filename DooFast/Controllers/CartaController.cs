@@ -12,6 +12,7 @@ using Newtonsoft.Json.Linq;
 using System.Web.Http.Results;
 using System.Web.Mvc;
 using System.Web.Http.Cors;
+using CapaEntidades.CartaEntities;
 
 namespace DooFast.Controllers
 {
