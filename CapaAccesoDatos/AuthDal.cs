@@ -18,6 +18,9 @@ namespace CapaAccesoDatos
         public List<AuthBeList> AutenticarUsuario(AuthBe obj)
         {
 
+
+            obj.contrasenia = DalUtil.GetSHA256(obj.contrasenia);
+
             try
             {
                 using (SqlConnection cn = new SqlConnection(cnxStr))

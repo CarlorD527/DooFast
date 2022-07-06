@@ -16,6 +16,7 @@ namespace CapaAccesoDatos
         // Crear Usuario
         public bool Add(UsuarioBe obj)
         {
+            obj.contrasenia= DalUtil.GetSHA256(obj.contrasenia);
             //Se crea un nuevo comando sql
             ComandoSqlDF cmd = new ComandoSqlDF("usp_CrearUsuario");
             //Se añaden los parametros
