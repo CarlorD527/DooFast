@@ -49,26 +49,26 @@ namespace DooFast.Controllers.Tests
 
         }
 
-        [TestMethod]
-        //[UrlToTest("https://localhost:44301/")
-        public void PostComdiaTest() {
+        //[TestMethod]
+        ////[UrlToTest("https://localhost:44301/")
+        //public void PostComdiaTest() {
 
 
-            ComidasController comidas = new ComidasController();
+        //    ComidasController comidas = new ComidasController();
 
-            ComidaBe comidaPrueba = new ComidaBe();
+        //    ComidaBe comidaPrueba = new ComidaBe();
 
-            comidaPrueba.idCategoria = 1;
-            comidaPrueba.nombreComida = "Ensalada de cebolla";
-            comidaPrueba.costo = 20;
-            comidaPrueba.precio = 10;
+        //    comidaPrueba.idCategoria = 1;
+        //    comidaPrueba.nombreComida = "Ensalada de cebolla";
+        //    comidaPrueba.costo = 20;
+        //    comidaPrueba.precio = 10;
 
-            var result = comidas.Post(comidaPrueba);
+        //    var result = comidas.Post(comidaPrueba);
 
         
-            Assert.AreSame("Comida registrada con exito!", result);
+        //    Assert.AreSame("Comida registrada con exito!", result);
 
-        }
+        //}
 
     }
 }

@@ -8,6 +8,8 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CloudinaryDotNet;
+using CloudinaryDotNet.Actions;
 
 namespace CapaAccesoDatos
 {
@@ -16,6 +18,7 @@ namespace CapaAccesoDatos
 
         private readonly String cnxStr = ConfigurationManager.ConnectionStrings["cnx"].ConnectionString;
 
+        
         // Crear comida 
         public bool Add(ComidaBe obj) {
 
@@ -32,6 +35,7 @@ namespace CapaAccesoDatos
 
                     cmd.Parameters.Add("@nombreComida", SqlDbType.VarChar).Value = obj.nombreComida;
                     cmd.Parameters.Add("@precio", SqlDbType.Money).Value = obj.precio;
+                   cmd.Parameters.Add("@imagen", SqlDbType.VarChar).Value = obj.imagen;
                     cmd.Parameters.Add("@costo", SqlDbType.Money).Value = obj.costo;
                     cmd.Parameters.Add("@idCategoria", SqlDbType.Int).Value = obj.idCategoria;
                     cn.Open();
