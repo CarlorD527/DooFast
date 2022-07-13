@@ -100,12 +100,8 @@ namespace DooFast.Controllers
                         else
                         {
                             int seed = (int)DateTime.Now.Ticks;
-                            //  where you want to attach your imageurl
-
-                            //if needed write the code to update the table
-
+                            //Guardando imagen
                             var filePath = HttpContext.Current.Server.MapPath("~/Foodimage/" + seed.ToString() + extension);
-                            //Userimage myfolder name where i want to save my image
                             postedFile.SaveAs(filePath);
                             //subiendo a cloudinary
                             var uploadParams = new ImageUploadParams()
@@ -115,6 +111,7 @@ namespace DooFast.Controllers
 
                             var uploadResult = cloudinary.Upload(uploadParams);
 
+                            //Obteniendo ruta de la imagen de cloudinary que se acaba de subir
                             ruta = uploadResult.SecureUri.ToString();
 
                             ComidaBe comida = new ComidaBe();
