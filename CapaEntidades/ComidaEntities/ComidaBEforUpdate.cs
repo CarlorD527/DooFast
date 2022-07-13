@@ -8,7 +8,7 @@ namespace CapaEntidades.ComidaEntities
 {
     public class ComidaBEforUpdate
     {
-        public string idComida { get; set; }
+        public int idComida { get; set; }
 
         public int idCategoria { get; set; }
         public string nombreComida { get; set; }

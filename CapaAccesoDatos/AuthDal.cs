@@ -74,6 +74,7 @@ namespace CapaAccesoDatos
         public void ObtenerCamposDt(DataTable dt, ref AuthBeList authbe, int i)
         {
             authbe.rol= Convert.ToString(dt.Rows[i]["nombreRol"]);
+            authbe.nombreUsuario = Convert.ToString(dt.Rows[i]["nombreUsuario"]);
         }
     }
 }

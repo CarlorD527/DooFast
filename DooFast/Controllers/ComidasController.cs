@@ -144,28 +144,96 @@ namespace DooFast.Controllers
         }
 
         // PUT: api/Comidas/5
-        public string Put(ComidaBEforUpdate comida)
+        public async Task<HttpResponseMessage> Put()
         {
            
 
             ComidaBl obj = new ComidaBl();
 
+            Account account = new Account(CLOUD_NAME, API_KEY, API_SECRET);
+            cloudinary = new Cloudinary(account);
+
+            Dictionary<string, object> dict = new Dictionary<string, object>();
             try
             {
-                obj.Update(comida);
 
-             
-               
-                return  "Comida actualizada con exito!";
+                var httpRequest = HttpContext.Current.Request;
+
+
+                foreach (string file in httpRequest.Files)
+                {
+                    string ruta;
+                    HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.Created);
+
+                    var postedFile = httpRequest.Files[file];
+                    if (postedFile != null && postedFile.ContentLength > 0)
+                    {
+
+                        int MaxContentLength = 1024 * 1024 * 1; //Size = 1 MB
+
+                        IList<string> AllowedFileExtensions = new List<string> { ".jpg", ".gif", ".png" };
+                        var ext = postedFile.FileName.Substring(postedFile.FileName.LastIndexOf('.'));
+                        var extension = ext.ToLower();
+                        if (!AllowedFileExtensions.Contains(extension))
+                        {
+
+                            var message = string.Format("Please Upload image of type .jpg,.gif,.png.");
+
+                            dict.Add("error", message);
+                            return Request.CreateResponse(HttpStatusCode.BadRequest, dict);
+                        }
+                        else if (postedFile.ContentLength > MaxContentLength)
+                        {
+
+                            var message = string.Format("Please Upload a file upto 1 mb.");
+
+                            dict.Add("error", message);
+                            return Request.CreateResponse(HttpStatusCode.BadRequest, dict);
+                        }
+                        else
+                        {
+                            int seed = (int)DateTime.Now.Ticks;
+                            //Guardando imagen
+                            var filePath = HttpContext.Current.Server.MapPath("~/Foodimage/" + seed.ToString() + extension);
+                            postedFile.SaveAs(filePath);
+                            //subiendo a cloudinary
+                            var uploadParams = new ImageUploadParams()
+                            {
+                                File = new FileDescription(filePath)
+                            };
+
+                            var uploadResult = cloudinary.Upload(uploadParams);
+
+                            //Obteniendo ruta de la imagen de cloudinary que se acaba de subir
+                            ruta = uploadResult.SecureUri.ToString();
+
+                            ComidaBEforUpdate comida = new ComidaBEforUpdate();
+
+                            comida.idComida = Convert.ToInt32(HttpContext.Current.Request.Form["idComida"]);
+                            comida.idCategoria = Convert.ToInt32(HttpContext.Current.Request.Form["idCategoria"]);
+                            comida.nombreComida = HttpContext.Current.Request.Form["nombreComida"];
+                            comida.precio = Convert.ToDouble(HttpContext.Current.Request.Form["precio"]);
+                            comida.costo = Convert.ToDouble(HttpContext.Current.Request.Form["costo"]);
+                            comida.imagen = ruta;
+
+                            obj.Update(comida);
+                            var message1 = string.Format("Image Updated Successfully." + ruta);
+                            return Request.CreateErrorResponse(HttpStatusCode.Created, message1);
+                        }
+                    }
+
+                }
+                var res = string.Format("Please Upload a image.");
+                dict.Add("error", res);
+                return Request.CreateResponse(HttpStatusCode.NotFound, dict);
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
-                return "Algo salio mal, verificar el body del PUT!!";
-
-            
+                var res = string.Format("some Message");
+                throw (ex);
+                dict.Add("error", res);
+                return Request.CreateResponse(HttpStatusCode.NotFound, dict);
             }
-
         }
 
         // DELETE: api/Comidas/5

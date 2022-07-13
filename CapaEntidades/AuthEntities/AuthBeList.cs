@@ -9,5 +9,7 @@ namespace CapaEntidades.AuthEntities
     public class AuthBeList
     {
         public string rol { get; set; }
+        
+        public string nombreUsuario { get; set; }
     }
 }
