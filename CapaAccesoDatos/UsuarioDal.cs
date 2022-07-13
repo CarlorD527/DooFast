@@ -67,6 +67,8 @@ namespace CapaAccesoDatos
         //Actualizar Usuario
         public bool Update(UsuarioBEforUpdate obj)
         {
+            obj.contrasenia = DalUtil.GetSHA256(obj.contrasenia);
+
             ComandoSqlDF cmd = new ComandoSqlDF("usp_ActualizarUsuario");
             cmd.AddInt("@idUsuario", obj.idUsuario);
             cmd.AddInt("@idRestaurante", obj.idRestaurante);
