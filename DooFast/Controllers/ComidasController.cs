@@ -231,8 +231,6 @@ namespace DooFast.Controllers
             {
                 var res = string.Format("some Message");
                 throw (ex);
-                dict.Add("error", res);
-                return Request.CreateResponse(HttpStatusCode.NotFound, dict);
             }
         }
 
