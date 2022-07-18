@@ -51,7 +51,8 @@ namespace DooFast.Controllers
         }
 
         // POST: api/Comidas
-        public async Task<HttpResponseMessage> Post()
+        [Obsolete]
+        public Task<HttpResponseMessage> Post()
         {
             Account account = new Account(CLOUD_NAME, API_KEY, API_SECRET);
             cloudinary = new Cloudinary(account);
@@ -87,7 +88,7 @@ namespace DooFast.Controllers
                             var message = string.Format("Please Upload image of type .jpg,.gif,.png.");
 
                             dict.Add("error", message);
-                            return Request.CreateResponse(HttpStatusCode.BadRequest, dict);
+                            return Task.FromResult(Request.CreateResponse(HttpStatusCode.BadRequest, dict));
                         }
                         else if (postedFile.ContentLength > MaxContentLength)
                         {
@@ -95,7 +96,7 @@ namespace DooFast.Controllers
                             var message = string.Format("Please Upload a file upto 1 mb.");
 
                             dict.Add("error", message);
-                            return Request.CreateResponse(HttpStatusCode.BadRequest, dict);
+                            return Task.FromResult(Request.CreateResponse(HttpStatusCode.BadRequest, dict));
                         }
                         else
                         {
@@ -124,27 +125,26 @@ namespace DooFast.Controllers
 
                             obj.Add(comida);
                             var message1 = string.Format("Image Updated Successfully." + ruta);
-                            return Request.CreateErrorResponse(HttpStatusCode.Created, message1);
+                            return Task.FromResult(Request.CreateErrorResponse(HttpStatusCode.Created, message1));
                         }
                     }
 
                 }
                 var res = string.Format("Please Upload a image.");
                 dict.Add("error", res);
-                return Request.CreateResponse(HttpStatusCode.NotFound, dict);
+                return Task.FromResult(Request.CreateResponse(HttpStatusCode.NotFound, dict));
             }
             catch (Exception ex)
             {
-                var res = string.Format("some Message");
+           
                 throw (ex);
-                dict.Add("error", res);
-                return Request.CreateResponse(HttpStatusCode.NotFound, dict);
             }
 
         }
 
         // PUT: api/Comidas/5
-        public async Task<HttpResponseMessage> Put()
+        [Obsolete]
+        public Task<HttpResponseMessage> Put()
         {
            
 
@@ -180,7 +180,7 @@ namespace DooFast.Controllers
                             var message = string.Format("Please Upload image of type .jpg,.gif,.png.");
 
                             dict.Add("error", message);
-                            return Request.CreateResponse(HttpStatusCode.BadRequest, dict);
+                            return Task.FromResult(Request.CreateResponse(HttpStatusCode.BadRequest, dict));
                         }
                         else if (postedFile.ContentLength > MaxContentLength)
                         {
@@ -188,7 +188,7 @@ namespace DooFast.Controllers
                             var message = string.Format("Please Upload a file upto 1 mb.");
 
                             dict.Add("error", message);
-                            return Request.CreateResponse(HttpStatusCode.BadRequest, dict);
+                            return Task.FromResult(Request.CreateResponse(HttpStatusCode.BadRequest, dict));
                         }
                         else
                         {
@@ -218,14 +218,14 @@ namespace DooFast.Controllers
 
                             obj.Update(comida);
                             var message1 = string.Format("Image Updated Successfully." + ruta);
-                            return Request.CreateErrorResponse(HttpStatusCode.Created, message1);
+                            return Task.FromResult(Request.CreateErrorResponse(HttpStatusCode.Created, message1));
                         }
                     }
 
                 }
                 var res = string.Format("Please Upload a image.");
                 dict.Add("error", res);
-                return Request.CreateResponse(HttpStatusCode.NotFound, dict);
+                return Task.FromResult(Request.CreateResponse(HttpStatusCode.NotFound, dict));
             }
             catch (Exception ex)
             {
