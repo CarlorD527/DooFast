@@ -12,12 +12,29 @@ namespace CapaAccesoDatos
 {
     public class ComidaCartaDal
     {
-        private readonly String cnxStr = ConfigurationManager.ConnectionStrings["cnx"].ConnectionString;
 
         //OBTENER UNA CARTA CON COMIDAS
         public List<ComidaBEforList> listarComidaCarta(int idCarta)
         {
+            List<ComidaBEforList> lstComidasCarta = new List<ComidaBEforList>();
+            //Se crea un nuevo comando sql
+            ComandoSqlDF cmd = new ComandoSqlDF("usp_ListarComidaCarta");
+            //Se añaden los parametros
+            cmd.AddInt("@idCarta", idCarta);
 
+            //Se ejecuta el comando y se devuelve el resultado
+            DataTable tablaComidas = cmd.EjecutarTabla();
+            for(int i = 0; i < tablaComidas.Rows.Count; i++)
+            {
+                lstComidasCarta.Add(
+                    ComidaDal.ObtenerCamposComida(
+                        new TablaValores(tablaComidas.Rows[i])
+                    )
+                );
+            }
+            return lstComidasCarta;
+
+            /*
             try
             {
                 using (SqlConnection cn = new SqlConnection(cnxStr))
@@ -66,6 +83,9 @@ namespace CapaAccesoDatos
                 throw new Exception(e.Message);
 
             }
+                return lstComidasVacia;
+
+            }*/
         }
 
         // AGREGAR COMIDA A LA CARTA - DE MOMENTO SOLO SE TRABAJARA CON 1 CARTA
@@ -73,6 +93,17 @@ namespace CapaAccesoDatos
         public bool AddComidaCarta(CartaBEforComidaInsert obj)
         {
 
+            //Se crea un nuevo comando sql
+            ComandoSqlDF cmd = new ComandoSqlDF("usp_AgregarPlatilloCarta");
+            //Se añaden los parametros
+            cmd.AddInt("@idCarta", obj.idCarta);
+            cmd.AddInt("@idComida", obj.idComida);
+
+            //Se ejecuta el comando y se devuelve el resultado
+            return cmd.Ejecutar();
+
+
+            /*
             bool state = false;
 
             try
@@ -100,11 +131,11 @@ namespace CapaAccesoDatos
                 throw new Exception(e.Message);
             }
 
-            return state;
+            return state;*/
         }
 
 
-        public void ObtenerCamposDt(DataTable dt, ComidaBEforList comida, int i)
+        /*public void ObtenerCamposDt(DataTable dt, ComidaBEforList comida, int i)
         {
 
             comida.idComida = Convert.ToInt32(dt.Rows[i]["idComida"]);
@@ -116,6 +147,7 @@ namespace CapaAccesoDatos
             comida.fechaCreacion = Convert.ToDateTime(dt.Rows[i]["fechaCreacion"]);
             comida.estado = dt.Rows[i]["estado"].ToString();
 
-        }
+        }*/
+
     }
 }

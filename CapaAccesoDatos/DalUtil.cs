@@ -42,10 +42,10 @@ public class ComandoSqlDF
         Add(SqlDbType.Int, nombre, valor);
     }
 
-    public void AddSring(string nombre, string valor)
-    {
-        Add(SqlDbType.VarChar, nombre, valor);
-    }
+        public void AddSring(string nombre, string valor)
+        {
+            Add(SqlDbType.VarChar, nombre, valor);
+        }
 
     public bool Ejecutar()
     {

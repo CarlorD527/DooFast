@@ -13,11 +13,22 @@ namespace CapaAccesoDatos
     // CREAR PEDIDO [TOMAR PEDIDO]
     public class PedidoDal
     {
-        private readonly  String cnxStr = ConfigurationManager.ConnectionStrings["cnx"].ConnectionString;
 
         public bool Add(PedidoBe obj)
         {
+            //Se crea un nuevo comando sql
+            ComandoSqlDF cmd = new ComandoSqlDF("usp_RegistrarOrden");
+            //Se añaden los parametros
+            cmd.AddInt("@idMesa", obj.idMesa);
+            cmd.AddInt("@idComida", obj.idComida);
+            cmd.Add(SqlDbType.Money, "@cantidad", obj.cantidad);
 
+            //Se ejecuta el comando y se devuelve el resultado
+            return cmd.Ejecutar();
+
+
+
+            /*
             bool state = false;
 
             try
@@ -45,11 +56,38 @@ namespace CapaAccesoDatos
                 throw new Exception(e.Message);
             }
 
-            return state;
+            return state;*/
         }
 
+        //LISTAR PEDIDOS
         public List<PedidoBEforListCocina> listarPedidosCocina()
         {
+
+            List<PedidoBEforListCocina> lstPedidosCocina = new List<PedidoBEforListCocina>();
+
+            //Se crea un nuevo comando sql
+            ComandoSqlDF cmd = new ComandoSqlDF("usp_ListarPedidosCocina");
+            //Se ejecuta el comando y se devuelve el resultado
+            DataTable tablaComidas = cmd.EjecutarTabla();
+            for (int i = 0; i < tablaComidas.Rows.Count; i++)
+            {
+                TablaValores tv = new TablaValores(tablaComidas.Rows[i]);
+                lstPedidosCocina.Add(
+                    new PedidoBEforListCocina {
+                        idMesa = tv.GetInt("idMesa"),
+                        idOrden = tv.GetInt("idOrden"),
+                        nombreComida = tv.GetString("nombreComida"),
+                        imagen = tv.GetString("imagen"),
+                        cantidad = tv.GetInt("cantidad"),
+                        fechaCreacion = tv.GetDateTime("fechaCreacion"),
+                        estadoOrden = tv.GetString("estadoOrden")
+                    }
+                );
+            }
+            return lstPedidosCocina;
+
+
+            /*
 
             SqlDataAdapter da = new SqlDataAdapter("usp_ListarPedidosCocina", cnxStr);
             DataTable dt = new DataTable();
@@ -85,12 +123,40 @@ namespace CapaAccesoDatos
                 List<PedidoBEforListCocina> lstPedidosVacia = new List<PedidoBEforListCocina>();
 
                 return lstPedidosVacia;
-            }
+            }*/
         }
 
         public List<PedidoBEforListPorMesa> listarPedidosPorMesa(int nroMesa)
         {
+            List<PedidoBEforListPorMesa> lstPedidosPorMesa = new List<PedidoBEforListPorMesa>();
 
+            //Se crea un nuevo comando sql
+            ComandoSqlDF cmd = new ComandoSqlDF("usp_ListarOrdenesPorMesa");
+            //Se ejecuta el comando y se devuelve el resultado
+            DataTable tablaComidas = cmd.EjecutarTabla();
+            for (int i = 0; i < tablaComidas.Rows.Count; i++)
+            {
+                TablaValores tv = new TablaValores(tablaComidas.Rows[i]);
+                lstPedidosPorMesa.Add(
+                    new PedidoBEforListPorMesa
+                    {
+                        idMesa = tv.GetInt("idMesa"),
+                        idOrden = tv.GetInt("idOrden"),
+                        idComida = tv.GetInt("idComida"),
+                        nombreCategoria = tv.GetString("nombreCategoria"),
+                        nombreComida = tv.GetString("nombreComida"),
+                        precio = tv.GetDouble("precio"),
+                        estadoOrden = tv.GetString("estadoOrden"),
+                        cantidad = tv.GetInt("cantidad"),
+                        fechaCreacion = tv.GetDateTime("fechaCreacion")
+                    }
+                );
+            }
+            return lstPedidosPorMesa;
+
+
+
+            /*
             try
             {
                 using (SqlConnection cn = new SqlConnection(cnxStr))
@@ -144,11 +210,22 @@ namespace CapaAccesoDatos
             catch (Exception e)
             {
 
-                throw new Exception(e.Message);
-
-            }
+                Console.WriteLine(e.Message);
+                List<PedidoBEforListPorMesa> lstOrdenesPorMesaVacia = new List<PedidoBEforListPorMesa>();
+                return lstOrdenesPorMesaVacia;
+            }*/
         }
 
+        //eliminar pedido
+        public bool Delete(int idOrden)
+        {
+            //Se crea un nuevo comando sql
+            ComandoSqlDF cmd = new ComandoSqlDF("usp_EliminarOrden");
+            //Se añaden los parametros
+            cmd.AddInt("@idOrden", idOrden);
+            //Se ejecuta el comando y se devuelve el resultado
+            return cmd.Ejecutar();
+        }
 
     }
 }

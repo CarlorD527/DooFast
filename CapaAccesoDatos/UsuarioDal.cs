@@ -21,11 +21,11 @@ namespace CapaAccesoDatos
             //Se añaden los parametros
             cmd.AddInt("@idRestaurante", obj.idRestaurante);
             cmd.AddInt("@idRol", obj.idRol);
-            cmd.AddSring("@usuario", obj.usuario);
-            cmd.AddSring("@nombreUsuario", obj.nombreUsuario);
-            cmd.AddSring("@contrasenia", obj.contrasenia);
-            cmd.AddSring("@nroCelular", obj.nroCelular);
-            cmd.AddSring("@correoElectronico", obj.correoElectronico);
+            cmd.AddString("@usuario", obj.usuario);
+            cmd.AddString("@nombreUsuario", obj.nombreUsuario);
+            cmd.AddString("@contrasenia", obj.contrasenia);
+            cmd.AddString("@nroCelular", obj.nroCelular);
+            cmd.AddString("@correoElectronico", obj.correoElectronico);
 
             //Se ejecuta el comando y se devuelve el resultado
             return cmd.Ejecutar();
@@ -69,11 +69,11 @@ namespace CapaAccesoDatos
             cmd.AddInt("@idUsuario", obj.idUsuario);
             cmd.AddInt("@idRestaurante", obj.idRestaurante);
             cmd.AddInt("@idRol", obj.idRol);
-            cmd.AddSring("@usuario", obj.usuario);
-            cmd.AddSring("@nombreUsuario", obj.nombreUsuario);
-            cmd.AddSring("@contrasenia", obj.contrasenia);
-            cmd.AddSring("@nroCelular", obj.nroCelular);
-            cmd.AddSring("@correoElectronico", obj.correoElectronico);
+            cmd.AddString("@usuario", obj.usuario);
+            cmd.AddString("@nombreUsuario", obj.nombreUsuario);
+            cmd.AddString("@contrasenia", obj.contrasenia);
+            cmd.AddString("@nroCelular", obj.nroCelular);
+            cmd.AddString("@correoElectronico", obj.correoElectronico);
 
             return cmd.Ejecutar();
         }

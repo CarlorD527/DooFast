@@ -13,11 +13,19 @@ namespace CapaAccesoDatos
     public class CartaDal
     {
 
-        private readonly String cnxStr = ConfigurationManager.ConnectionStrings["cnx"].ConnectionString;
-
         // Crear Carta 
         public bool Add(CartaBe obj) {
 
+            //Se crea un nuevo comando sql
+            ComandoSqlDF cmd = new ComandoSqlDF("usp_CrearCarta");
+            //Se añaden los parametros
+            cmd.AddInt("@idRestaurante", obj.idRestaurante);
+            cmd.AddString("@nombreCarta", obj.nombreCarta);
+
+            //Se ejecuta el comando y se devuelve el resultado
+            return cmd.Ejecutar();
+
+            /*
             bool state = false;
 
             try
@@ -46,6 +54,7 @@ namespace CapaAccesoDatos
             }
 
             return state;
+            */
         }
 
         //Listar Cartas
@@ -57,6 +66,19 @@ namespace CapaAccesoDatos
         //Actualizar Carta
         public bool Update(CartaBEforUpdate obj)
         {
+
+            //Se crea un nuevo comando sql
+            ComandoSqlDF cmd = new ComandoSqlDF("usp_ActualizarCarta");
+            //Se añaden los parametros
+            cmd.AddInt("@idCarta", obj.idCarta);
+            cmd.AddInt("@idRestaurante", obj.idRestaurante);
+            cmd.AddString("@nombreCarta", obj.nombreCarta);
+
+            //Se ejecuta el comando y se devuelve el resultado
+            return cmd.Ejecutar();
+
+
+            /*
             bool state = false;
             try
             {
@@ -83,12 +105,23 @@ namespace CapaAccesoDatos
                 throw new Exception(e.Message);
             }
 
-            return state;
+            return state;*/
+
         }
 
         //Borrado LOGICO de Carta
         public bool Delete(int idCarta)
         {
+
+            //Se crea un nuevo comando sql
+            ComandoSqlDF cmd = new ComandoSqlDF("usp_EliminarCarta");
+            //Se añaden los parametros
+            cmd.AddInt("@idCarta", idCarta);
+
+            //Se ejecuta el comando y se devuelve el resultado
+            return cmd.Ejecutar();
+
+            /*
             bool state = false;
             try
             {
@@ -112,20 +145,7 @@ namespace CapaAccesoDatos
                 throw new Exception(e.Message);
             }
 
-            return state;
-        }
-        public void ObtenerCamposDt(DataTable dt, ComidaBEforList comida, int i)
-        {
-
-            comida.idComida = Convert.ToInt32(dt.Rows[i]["idComida"]);
-            comida.nombreComida = dt.Rows[i]["nombreComida"].ToString();
-            comida.nombreCategoria = dt.Rows[i]["nombreCategoria"].ToString();
-            comida.precio = Convert.ToDouble(dt.Rows[i]["precio"]);
-            comida.costo = Convert.ToDouble(dt.Rows[i]["costo"]);
-            comida.imagen = dt.Rows[i]["imagen"].ToString();
-            comida.fechaCreacion = Convert.ToDateTime(dt.Rows[i]["fechaCreacion"]);
-            comida.estado = dt.Rows[i]["estado"].ToString();
-
+            return state;*/
         }
 
 
