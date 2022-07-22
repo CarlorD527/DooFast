@@ -14,6 +14,7 @@ namespace CapaEntidades
         public double precio { get; set; }
         public double costo { get; set; }
         public int idCategoria { get; set; }
+        public string imagen { get; set; }
     }
 
     public class ComidaBEforList{
@@ -31,7 +32,7 @@ namespace CapaEntidades
     }
     public class ComidaBEforUpdate
     {
-        public string idComida { get; set; }
+        public int idComida { get; set; }
 
         public int idCategoria { get; set; }
         public string nombreComida { get; set; }

@@ -44,7 +44,6 @@
     <Compile Include="CartaBl.cs" />
     <Compile Include="UsuarioBl.cs" />
     <Compile Include="ComidaCartaBl.cs" />
-    <Compile Include="EmpleadoBl.cs" />
     <Compile Include="ComidaBl.cs" />
     <Compile Include="PedidoBl.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
