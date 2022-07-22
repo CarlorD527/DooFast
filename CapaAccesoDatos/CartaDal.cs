@@ -15,39 +15,17 @@ namespace CapaAccesoDatos
     public class CartaDal
     {
 
-        private readonly String cnxStr = ConfigurationManager.ConnectionStrings["cnx"].ConnectionString;
-
         // Crear Carta 
         public bool Add(CartaBe obj) {
 
-            bool state = false;
+            //Se crea un nuevo comando sql
+            ComandoSqlDF cmd = new ComandoSqlDF("usp_CrearCarta");
+            //Se añaden los parametros
+            cmd.AddInt("@idRestaurante", obj.idRestaurante);
+            cmd.AddString("@nombreCarta", obj.nombreCarta);
 
-            try
-            {
-                using (SqlConnection cn = new SqlConnection(cnxStr))
-                {
-
-                    SqlCommand cmd = new SqlCommand("usp_CrearCarta", cn);
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.CommandTimeout = 700;
-
-                    cmd.Parameters.Add("@idRestaurante", SqlDbType.Int).Value = obj.idRestaurante;
-                    cmd.Parameters.Add("@nombreCarta", SqlDbType.VarChar).Value = obj.nombreCarta;
-                    
-                    cn.Open();
-                    cmd.ExecuteNonQuery();
-                    state = true;
-                    cn.Close();
-
-                }
-            }
-            catch (Exception e)
-            {
-
-                Console.WriteLine(e.Message);
-            }
-
-            return state;
+            //Se ejecuta el comando y se devuelve el resultado
+            return cmd.Ejecutar();
         }
 
         //Listar Cartas
@@ -59,75 +37,27 @@ namespace CapaAccesoDatos
         //Actualizar Carta
         public bool Update(CartaBEforUpdate obj)
         {
-            bool state = false;
-            try
-            {
-                using (SqlConnection cn = new SqlConnection(cnxStr))
-                {
-                    SqlCommand cmd = new SqlCommand("usp_ActualizarCarta", cn);
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.CommandTimeout = 600;
+            //Se crea un nuevo comando sql
+            ComandoSqlDF cmd = new ComandoSqlDF("usp_ActualizarCarta");
+            //Se añaden los parametros
+            cmd.AddInt("@idCarta", obj.idCarta);
+            cmd.AddInt("@idRestaurante", obj.idRestaurante);
+            cmd.AddString("@nombreCarta", obj.nombreCarta);
 
-
-                    cmd.Parameters.Add("@idCarta", SqlDbType.Int).Value = obj.idCarta;
-                    cmd.Parameters.Add("@idRestaurante", SqlDbType.Int).Value = obj.idRestaurante;
-                    cmd.Parameters.Add("@nombreCarta", SqlDbType.VarChar).Value = obj.nombreCarta;
-               
-                    cn.Open();
-                    cmd.ExecuteNonQuery();
-                    state = true;
-                    cn.Close();
-                }
-            }
-            catch (Exception e)
-            {
-
-                Console.WriteLine(e.Message);
-            }
-
-            return state;
+            //Se ejecuta el comando y se devuelve el resultado
+            return cmd.Ejecutar();
         }
 
         //Borrado LOGICO de Carta
         public bool Delete(int idCarta)
         {
-            bool state = false;
-            try
-            {
-                using (SqlConnection cn = new SqlConnection(cnxStr))
-                {
-                    SqlCommand cmd = new SqlCommand("usp_EliminarCarta", cn);
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.CommandTimeout = 600;
+            //Se crea un nuevo comando sql
+            ComandoSqlDF cmd = new ComandoSqlDF("usp_EliminarCarta");
+            //Se añaden los parametros
+            cmd.AddInt("@idCarta", idCarta);
 
-
-                    cmd.Parameters.Add("@idCarta", SqlDbType.Int).Value = idCarta;
-                    cn.Open();
-                    cmd.ExecuteNonQuery();
-                    state = true;
-                    cn.Close();
-                }
-            }
-            catch (Exception e)
-            {
-
-                Console.WriteLine(e.Message);
-            }
-
-            return state;
-        }
-        public void ObtenerCamposDt(DataTable dt, ComidaBEforList comida, int i)
-        {
-
-            comida.idComida = Convert.ToInt32(dt.Rows[i]["idComida"]);
-            comida.nombreComida = dt.Rows[i]["nombreComida"].ToString();
-            comida.nombreCategoria = dt.Rows[i]["nombreCategoria"].ToString();
-            comida.precio = Convert.ToDouble(dt.Rows[i]["precio"]);
-            comida.costo = Convert.ToDouble(dt.Rows[i]["costo"]);
-            comida.imagen = dt.Rows[i]["imagen"].ToString();
-            comida.fechaCreacion = Convert.ToDateTime(dt.Rows[i]["fechaCreacion"]);
-            comida.estado = dt.Rows[i]["estado"].ToString();
-
+            //Se ejecuta el comando y se devuelve el resultado
+            return cmd.Ejecutar();
         }
 
 
