@@ -14,9 +14,9 @@ namespace CapaNegocio
         // CRUD DE MESA
         private readonly  MesaDal MesaDALC = new MesaDal();
 
-        public bool Add()
+        public bool Add(MesaBePost mesabe)
         {
-            return MesaDALC.Add();
+            return MesaDALC.Add(mesabe);
         }
 
         public List<MesaBE> listarMesas()

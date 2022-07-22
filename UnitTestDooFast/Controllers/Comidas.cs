@@ -51,7 +51,8 @@ namespace DooFast.Controllers.Tests
 
         //[TestMethod]
         ////[UrlToTest("https://localhost:44301/")
-        //public void PostComdiaTest() {
+        //public void PostComdiaTest()
+        //{
 
 
         //    ComidasController comidas = new ComidasController();
@@ -65,7 +66,7 @@ namespace DooFast.Controllers.Tests
 
         //    var result = comidas.Post(comidaPrueba);
 
-        
+
         //    Assert.AreSame("Comida registrada con exito!", result);
 
         //}

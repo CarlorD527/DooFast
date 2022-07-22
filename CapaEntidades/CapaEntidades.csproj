@@ -75,6 +75,7 @@
     <Compile Include="ComidaEntities\ComidaBEforUpdate.cs" />
     <Compile Include="ComidaEntities\ComidaBEPost.cs" />
     <Compile Include="MesaEntities\MesaBE.cs" />
+    <Compile Include="MesaEntities\MesaBePost.cs" />
     <Compile Include="PedidoEntities\PedidoBEforListCocina.cs" />
     <Compile Include="PedidoEntities\PedidoBEforListPorMesa.cs" />
     <Compile Include="UsuarioEntities\UsuarioBe.cs" />

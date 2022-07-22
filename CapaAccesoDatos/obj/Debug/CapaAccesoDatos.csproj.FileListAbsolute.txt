@@ -46,3 +46,5 @@ C:\Users\Rolf\source\repos\DooFast\CapaAccesoDatos\bin\Debug\System.Buffers.xml
 C:\Users\Rolf\source\repos\DooFast\CapaAccesoDatos\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\Rolf\source\repos\DooFast\CapaAccesoDatos\bin\Debug\System.Threading.Tasks.Extensions.xml
 C:\Users\Rolf\source\repos\DooFast\CapaAccesoDatos\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\Rolf\source\repos\DooFast\CapaAccesoDatos\bin\Debug\System.Data.SqlClient.dll
+C:\Users\Rolf\source\repos\DooFast\CapaAccesoDatos\bin\Debug\System.Data.SqlClient.xml

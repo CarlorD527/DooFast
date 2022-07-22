@@ -29,14 +29,14 @@ namespace DooFast.Controllers
         //}
 
         // POST: api/Mesa
-        public string Post()
+        public string Post(MesaBePost mesabe)
         {
 
             MesaBl obj = new MesaBl();
 
             try
             {
-                obj.Add();
+                obj.Add(mesabe);
 
                 return "Mesa registrada con exito!";
             }

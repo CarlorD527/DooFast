@@ -16,7 +16,7 @@ namespace CapaAccesoDatos
         private readonly String cnxStr = ConfigurationManager.ConnectionStrings["cnx"].ConnectionString;
 
         //Agregar mesa
-        public bool Add()
+        public bool Add(MesaBePost obj)
         {
 
             bool state = false;
@@ -29,6 +29,9 @@ namespace CapaAccesoDatos
                     SqlCommand cmd = new SqlCommand("usp_CrearMesa", cn);
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.CommandTimeout = 700;
+
+                    cmd.Parameters.Add("@nroMesa", SqlDbType.Int).Value = obj.nroMesa;
+                    cmd.Parameters.Add("@idRestaurante", SqlDbType.Int).Value = obj.idRestaurante;
                     cn.Open();
                     cmd.ExecuteNonQuery();
                     state = true;

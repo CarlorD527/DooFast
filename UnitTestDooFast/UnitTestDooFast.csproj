@@ -68,6 +68,7 @@
     <Compile Include="Controllers\Auth.cs" />
     <Compile Include="Controllers\ComidaCarta.cs" />
     <Compile Include="Controllers\Comidas.cs" />
+    <Compile Include="Controllers\Mesa.cs" />
     <Compile Include="Controllers\Ordenes.cs" />
     <Compile Include="Controllers\Carta.cs" />
     <Compile Include="Controllers\Usuarios.cs" />
@@ -78,6 +79,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CapaAccesoDatos\CapaAccesoDatos.csproj">
+      <Project>{0C4074B7-6F2D-4658-B578-03FB4A3AB8D5}</Project>
+      <Name>CapaAccesoDatos</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CapaEntidades\CapaEntidades.csproj">
       <Project>{484FC479-7895-4407-87F5-037980AEDCBF}</Project>
       <Name>CapaEntidades</Name>
