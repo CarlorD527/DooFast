@@ -20,7 +20,16 @@ namespace CapaAccesoDatos
         {
             SqlDataAdapter da = new SqlDataAdapter(comando, cnxStr);
             DataTable dt = new DataTable();
-            da.Fill(dt);
+            try
+            {
+                da.Fill(dt);
+            }
+            catch(SqlException ex)
+            {
+                //En caso falle el proceso de ejecución se devuelve false
+                Trace.WriteLine(ex);
+                return new DataTable();
+            }
             return dt;
         }
 
@@ -117,7 +126,7 @@ namespace CapaAccesoDatos
             {
                 //En caso haya un error se devuelve null
                 Trace.WriteLine(ex);
-                return null;
+                return new DataTable();
             }
             return dt;
         }
