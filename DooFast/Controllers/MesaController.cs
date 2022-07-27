@@ -52,12 +52,16 @@ namespace DooFast.Controllers
             }
         }
 
-        //// PUT: api/Mesa/5
-        //public void Put(int id, [FromBody]string value)
-        //{
-        //}
+        // PUT: api/Mesa/5
+        public string Put(MesaBeUpdate mesaBe)
+        {
+            if (new MesaBl().Update(mesaBe))
+                return "Estado de la mesa cambiada con exito!";
+            else
+                return "Algo salio mal, verificar el body del PUT!!";
+        }
 
-        // DELETE: api/Mesa/5
+        //DELETE: api/Mesa/5
         public string Delete(int id)
         {
             if (id > 0)

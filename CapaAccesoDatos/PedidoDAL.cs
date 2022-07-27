@@ -1,5 +1,6 @@
 ﻿using CapaEntidades;
 using CapaEntidades.PedidoBe;
+using CapaEntidades.PedidoEntities;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -151,6 +152,18 @@ namespace CapaAccesoDatos
             }
         }
 
+
+
+        //actualizar estado de pedido
+        public bool Update(PedidoBeUpdate obj)
+        {
+            ComandoSqlDF cmd = new ComandoSqlDF("usp_ActualizarEstadoOrden");
+            cmd.AddInt("@idOrden", obj.idOrden);
+            cmd.AddInt("@nroMesa", obj.nroMesa);
+            cmd.AddSring("@estadoOrden", obj.estadoOrden);
+
+            return cmd.Ejecutar();
+        }
 
         //eliminar pedido
         public bool Delete(int idOrden)

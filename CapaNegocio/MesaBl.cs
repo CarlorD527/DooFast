@@ -26,7 +26,10 @@ namespace CapaNegocio
         
             return lstMesas;
         }
-     
+        public bool Update(MesaBeUpdate obj)
+        {
+            return MesaDALC.Update(obj);
+        }
         public bool Delete(int idMesa)
         {
             return MesaDALC.Delete(idMesa);

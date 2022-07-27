@@ -1,6 +1,7 @@
 ﻿using CapaAccesoDatos;
 using CapaEntidades;
 using CapaEntidades.PedidoBe;
+using CapaEntidades.PedidoEntities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -46,7 +47,10 @@ namespace CapaNegocio
          
         }
 
-        
+        public bool Update(PedidoBeUpdate obj)
+        {
+            return pedidoDALC.Update(obj);
+        }
         //Eliminar pedido
         public bool Delete(int idOrden)
         {

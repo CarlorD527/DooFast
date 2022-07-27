@@ -48,7 +48,18 @@ namespace CapaAccesoDatos
             return state;
         }
 
+        //Actualizar mesa
 
+        //Actualizar Usuario
+        public bool Update(MesaBeUpdate obj)
+        {
+
+            ComandoSqlDF cmd = new ComandoSqlDF("usp_ActualizarEstadoMesa");
+            cmd.AddInt("@nroMesa", obj.nroMesa);
+            cmd.AddInt("@idRestaurante", obj.IdRestaurante);
+            cmd.AddSring("@estadoMesa", obj.estadoMesa);
+            return cmd.Ejecutar();
+        }
         //Listar Mesas
         public List<MesaBE> listarMesas()
         {

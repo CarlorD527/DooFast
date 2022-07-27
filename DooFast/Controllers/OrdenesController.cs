@@ -1,5 +1,6 @@
 ﻿using CapaEntidades;
 using CapaEntidades.PedidoBe;
+using CapaEntidades.PedidoEntities;
 using CapaNegocio;
 using System;
 using System.Collections.Generic;
@@ -57,10 +58,14 @@ namespace DooFast.Controllers
             }
         }
 
-        //// PUT: api/Ordenes/5
-        //public void Put(int id, [FromBody]string value)
-        //{
-        //}
+        // PUT: api/Ordenes/5
+        public string Put(PedidoBeUpdate pedido)
+        {
+            if (new PedidoBl().Update(pedido))
+                return "Estado de pedido cambiado con exito!";
+            else
+                return "Algo salio mal, verificar el body del PUT!!";
+        }
 
         // DELETE: api/Ordenes/5
         public string Delete(int id)
