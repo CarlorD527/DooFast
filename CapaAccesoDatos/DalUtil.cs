@@ -190,7 +190,16 @@ namespace CapaAccesoDatos
         }
         public string GetString(string campo)
         {
-            return Get(campo).ToString();
+            try
+            {
+                return Get(campo).ToString();
+            }
+            catch (Exception ex)
+            {
+                Trace.WriteLine(ex);
+                return "";
+            }
+            
         }
         public double GetDouble(string campo)
         {
