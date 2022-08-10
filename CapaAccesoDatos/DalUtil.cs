@@ -192,7 +192,8 @@ namespace CapaAccesoDatos
         {
             try
             {
-                return Get(campo).ToString();
+                Object obj = Get(campo);
+                return obj == null ? "" : Get(campo).ToString();
             }
             catch (Exception ex)
             {
