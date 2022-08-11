@@ -34,7 +34,7 @@ namespace CapaAccesoDatos
             List<MesaBE> lstMesas = new List<MesaBE>();
 
             //Se crea un nuevo comando sql
-            ComandoSqlDF cmd = new ComandoSqlDF("usp_listarComidas");
+            ComandoSqlDF cmd = new ComandoSqlDF("usp_listarMesas");
 
             //Se ejecuta el comando y se devuelve el resultado
             DataTable tablaMesas = cmd.EjecutarTabla();

@@ -61,7 +61,7 @@ namespace CapaAccesoDatos
             List<ComidaBEforList> lstComidasCarta = new List<ComidaBEforList>();
 
             //Se crea un nuevo comando sql
-            ComandoSqlDF cmd = new ComandoSqlDF("usp_listarComidas");
+            ComandoSqlDF cmd = new ComandoSqlDF("usp_ObtenerComida");
             //Se añaden los parametros
             cmd.AddInt("@idComida", idComida);
             //Se ejecuta el comando y se devuelve el resultado
