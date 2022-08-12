@@ -44,6 +44,7 @@
     <Compile Include="AuthBl.cs" />
     <Compile Include="CartaBl.cs" />
     <Compile Include="MesaBl.cs" />
+    <Compile Include="HistorialBl.cs" />
     <Compile Include="UsuarioBl.cs" />
     <Compile Include="ComidaCartaBl.cs" />
     <Compile Include="ComidaBl.cs" />

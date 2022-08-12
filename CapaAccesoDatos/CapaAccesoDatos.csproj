@@ -52,6 +52,7 @@
     <Compile Include="AuthDal.cs" />
     <Compile Include="DalUtil.cs" />
     <Compile Include="MesaDal.cs" />
+    <Compile Include="HistorialPedidoDal.cs" />
     <Compile Include="UsuarioDal.cs" />
     <Compile Include="CartaDal.cs" />
     <Compile Include="ComidaCartaDal.cs" />
