@@ -1,0 +1,63 @@
+
+EXEC sp_rename 'dbo.HistorialPedidos.año', 'anio', 'COLUMN';
+
+CREATE PROCEDURE [dbo].[usp_ListarHistorialPedidos]
+AS
+BEGIN
+	SELECT  hist.idHistorialPedido, coor.idOrden, coor.idComida, coor.cantidad, hist.anio, hist.mes, hist.fechaRegistro, hist.estado
+			FROM HistorialPedidos as hist
+			JOIN Comidas_Ordenes as coor ON coor.idComidasOrdenes = hist.idComidasOrdenes
+			order by fechaRegistro
+END
+GO
+
+CREATE PROCEDURE [dbo].[usp_ListarHistorialMes]
+	@mes INT,
+	@anio INT
+AS
+BEGIN
+	SELECT  hist.idHistorialPedido, coor.idOrden, coor.idComida, coor.cantidad, hist.anio, hist.mes, hist.fechaRegistro, hist.estado
+			FROM HistorialPedidos as hist
+			JOIN Comidas_Ordenes as coor ON coor.idComidasOrdenes = hist.idComidasOrdenes
+			WHERE hist.anio = @anio AND hist.mes = @mes
+			order by fechaRegistro
+END
+GO
+
+CREATE PROCEDURE [dbo].[usp_ListarHistorialAnio]
+	@anio INT
+AS
+BEGIN
+	SELECT  hist.idHistorialPedido, coor.idOrden, coor.idComida, coor.cantidad, hist.anio, hist.mes, hist.fechaRegistro, hist.estado
+			FROM HistorialPedidos as hist
+			JOIN Comidas_Ordenes as coor ON coor.idComidasOrdenes = hist.idComidasOrdenes
+			WHERE hist.anio = @anio
+				order by fechaRegistro
+END
+GO
+
+ALTER PROCEDURE [dbo].[usp_RegistrarOrden]
+@idMesa INT,
+@idComida INT ,
+@cantidad INT
+AS
+BEGIN
+	INSERT INTO  Orden (fechaCreacion,estadoOrden, idMesa, estado) 
+	VALUES (SYSDATETIME(),'Por servir', @idMesa , 'activo')
+
+	DECLARE @idOrden INT 
+	DECLARE @idComidasOrdenes INT
+	DECLARE @mes INT
+	DECLARE @anio INT
+
+	SELECT @idOrden = MAX(idOrden)  FROM Orden
+
+	INSERT INTO Comidas_Ordenes (idOrden , idComida , cantidad)
+	VALUES (@idOrden, @idComida ,@cantidad)
+
+	SELECT @idComidasOrdenes = MAX(idComidasOrdenes) FROM Comidas_Ordenes
+
+	INSERT INTO HistorialPedidos(idComidasOrdenes, anio, mes, estado , fechaRegistro)
+	VALUES (@idComidasOrdenes, year(SYSDATETIME()),month(SYSDATETIME()) ,'activo',SYSDATETIME())
+
+END
