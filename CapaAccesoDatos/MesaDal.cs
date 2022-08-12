@@ -13,39 +13,18 @@ namespace CapaAccesoDatos
     public class MesaDal
     {
 
-        private readonly String cnxStr = ConfigurationManager.ConnectionStrings["cnx"].ConnectionString;
-
         //Agregar mesa
         public bool Add(MesaBePost obj)
         {
 
-            bool state = false;
+            //Se crea un nuevo comando sql
+            ComandoSqlDF cmd = new ComandoSqlDF("usp_CrearMesa");
+            //Se añaden los parametros
+            cmd.AddInt("@nroMesa", obj.nroMesa);
+            cmd.AddInt("@idRestaurante", obj.idRestaurante);
 
-            try
-            {
-                using (SqlConnection cn = new SqlConnection(cnxStr))
-                {
-
-                    SqlCommand cmd = new SqlCommand("usp_CrearMesa", cn);
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.CommandTimeout = 700;
-
-                    cmd.Parameters.Add("@nroMesa", SqlDbType.Int).Value = obj.nroMesa;
-                    cmd.Parameters.Add("@idRestaurante", SqlDbType.Int).Value = obj.idRestaurante;
-                    cn.Open();
-                    cmd.ExecuteNonQuery();
-                    state = true;
-                    cn.Close();
-
-                }
-            }
-            catch (Exception e)
-            {
-
-                Console.WriteLine(e.Message);
-            }
-
-            return state;
+            //Se ejecuta el comando y se devuelve el resultado
+            return cmd.Ejecutar();
         }
 
         //Actualizar mesa
@@ -57,77 +36,53 @@ namespace CapaAccesoDatos
             ComandoSqlDF cmd = new ComandoSqlDF("usp_ActualizarEstadoMesa");
             cmd.AddInt("@nroMesa", obj.nroMesa);
             cmd.AddInt("@idRestaurante", obj.IdRestaurante);
-            cmd.AddSring("@estadoMesa", obj.estadoMesa);
+            cmd.AddString("@estadoMesa", obj.estadoMesa);
             return cmd.Ejecutar();
         }
         //Listar Mesas
         public List<MesaBE> listarMesas()
         {
+            List<MesaBE> lstMesas = new List<MesaBE>();
 
-            SqlDataAdapter da = new SqlDataAdapter("usp_ListarMesas", cnxStr);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
+            //Se crea un nuevo comando sql
+            ComandoSqlDF cmd = new ComandoSqlDF("usp_listarMesas");
 
-            List<MesaBE> lstMesa = new List<MesaBE>();
-            if (dt.Rows.Count > 0)
+            //Se ejecuta el comando y se devuelve el resultado
+            DataTable tablaMesas = cmd.EjecutarTabla();
+            for (int i = 0; i < tablaMesas.Rows.Count; i++)
             {
-
-                for (int i = 0; i < dt.Rows.Count; i++)
-                {
-                    MesaBE mesa = new MesaBE();
-
-                    ObtenerCamposDt(dt, ref mesa, i);
-
-                    lstMesa.Add(mesa);
-                }
+                lstMesas.Add(
+                    ObtenerCamposMesa(
+                        new TablaValores(tablaMesas.Rows[i])
+                    )
+                );
             }
-            if (lstMesa.Count > 0)
-            {
-                return lstMesa;
-            }
-            else
-            {
-                List<MesaBE> lstComidasVacia = new List<MesaBE>();
-                return lstComidasVacia;
-            }
+            return lstMesas;
         }
 
         //Borrar mesa
         public bool Delete(int idMesas)
         {
-            bool state = false;
-            try
-            {
-                using (SqlConnection cn = new SqlConnection(cnxStr))
-                {
-                    SqlCommand cmd = new SqlCommand("usp_BorrarMesa", cn);
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.CommandTimeout = 600;
 
+            //Se crea un nuevo comando sql
+            ComandoSqlDF cmd = new ComandoSqlDF("usp_BorrarMesa");
+            //Se añaden los parametros
+            cmd.AddInt("@nroMesa", idMesas);
 
-                    cmd.Parameters.Add("@idMesa", SqlDbType.Int).Value = idMesas;
-                    cn.Open();
-                    cmd.ExecuteNonQuery();
-                    state = true;
-                    cn.Close();
-                }
-            }
-            catch (Exception e)
-            {
-
-                Console.WriteLine(e.Message);
-            }
-
-            return state;
+            //Se ejecuta el comando y se devuelve el resultado
+            return cmd.Ejecutar();
         }
 
-        public void ObtenerCamposDt(DataTable dt, ref MesaBE mesa, int i)
+        public static MesaBE ObtenerCamposMesa(TablaValores tv)
         {
-
-            mesa.idMesa = Convert.ToInt32(dt.Rows[i]["idMesa"]);
-            mesa.estadoMesa = dt.Rows[i]["estadoMesa"].ToString();
-            mesa.nroMesa = Convert.ToInt32(dt.Rows[i]["nroMesa"]);
-            mesa.IdRestaurante = Convert.ToInt32(dt.Rows[i]["IdRestaurante"]);
+            MesaBE comida = new MesaBE
+            {
+                idMesa = tv.GetInt("idMesa"),
+                estadoMesa = tv.GetString("estadoMesa"),
+                nroMesa = tv.GetInt("nroMesa"),
+                IdRestaurante = tv.GetInt("IdRestaurante")
+            };
+            return comida;
         }
 
     }

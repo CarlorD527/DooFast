@@ -20,7 +20,16 @@ namespace CapaAccesoDatos
         {
             SqlDataAdapter da = new SqlDataAdapter(comando, cnxStr);
             DataTable dt = new DataTable();
-            da.Fill(dt);
+            try
+            {
+                da.Fill(dt);
+            }
+            catch(SqlException ex)
+            {
+                //En caso falle el proceso de ejecución se devuelve false
+                Trace.WriteLine(ex);
+                return new DataTable();
+            }
             return dt;
         }
 
@@ -63,7 +72,7 @@ namespace CapaAccesoDatos
             Add(SqlDbType.Int, nombre, valor);
         }
 
-        public void AddSring(string nombre, string valor)
+        public void AddString(string nombre, string valor)
         {
             Add(SqlDbType.VarChar, nombre, valor);
         }
@@ -117,7 +126,7 @@ namespace CapaAccesoDatos
             {
                 //En caso haya un error se devuelve null
                 Trace.WriteLine(ex);
-                return null;
+                return new DataTable();
             }
             return dt;
         }
@@ -181,7 +190,17 @@ namespace CapaAccesoDatos
         }
         public string GetString(string campo)
         {
-            return Get(campo).ToString();
+            try
+            {
+                Object obj = Get(campo);
+                return obj == null ? "" : Get(campo).ToString();
+            }
+            catch (Exception ex)
+            {
+                Trace.WriteLine(ex);
+                return "";
+            }
+            
         }
         public double GetDouble(string campo)
         {
