@@ -21,6 +21,7 @@ namespace CapaAccesoDatos
             ComandoSqlDF cmd = new ComandoSqlDF("usp_CrearMesa");
             //Se añaden los parametros
             cmd.AddInt("@nroMesa", obj.nroMesa);
+            cmd.AddInt("@nroAsientos", obj.nroAsientos);
             cmd.AddInt("@idRestaurante", obj.idRestaurante);
 
             //Se ejecuta el comando y se devuelve el resultado
@@ -35,6 +36,7 @@ namespace CapaAccesoDatos
 
             ComandoSqlDF cmd = new ComandoSqlDF("usp_ActualizarEstadoMesa");
             cmd.AddInt("@nroMesa", obj.nroMesa);
+            cmd.AddInt("@nroAsientos", obj.nroAsientos);
             cmd.AddInt("@idRestaurante", obj.IdRestaurante);
             cmd.AddString("@estadoMesa", obj.estadoMesa);
             return cmd.Ejecutar();
@@ -80,6 +82,7 @@ namespace CapaAccesoDatos
                 idMesa = tv.GetInt("idMesa"),
                 estadoMesa = tv.GetString("estadoMesa"),
                 nroMesa = tv.GetInt("nroMesa"),
+                nroAsientos = tv.GetInt("nroAsientos"),
                 IdRestaurante = tv.GetInt("IdRestaurante")
             };
             return comida;

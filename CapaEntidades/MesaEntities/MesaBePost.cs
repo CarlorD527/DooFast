@@ -11,6 +11,9 @@ namespace CapaEntidades.MesaEntities
 
         public int nroMesa { get; set; }
 
+        public int nroAsientos { get; set; }
+
+
         public int idRestaurante { get; set; }
     }
 }
