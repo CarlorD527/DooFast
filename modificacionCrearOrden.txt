@@ -1,0 +1,25 @@
+ALTER PROCEDURE [dbo].[usp_RegistrarOrden]
+@idMesa INT,
+@idComida INT ,
+@cantidad INT
+AS
+BEGIN
+	INSERT INTO  Orden (fechaCreacion,estadoOrden, idMesa, estado) 
+	VALUES (SYSDATETIME(),'Por servir', @idMesa , 'activo')
+
+	DECLARE @idOrden INT 
+	DECLARE @idComidasOrdenes INT
+	DECLARE @mes INT
+	DECLARE @anio INT
+
+	SELECT @idOrden = MAX(idOrden)  FROM Orden
+
+	INSERT INTO Comidas_Ordenes (idOrden , idComida , cantidad)
+	VALUES (@idOrden, @idComida ,@cantidad)
+
+	SELECT @idComidasOrdenes = MAX(idComidasOrdenes) FROM Comidas_Ordenes
+
+	INSERT INTO HistorialPedidos(idComidasOrdenes, año, mes, estado , fechaRegistro)
+	VALUES (@idComidasOrdenes, year(SYSDATETIME()),month(SYSDATETIME()) ,'activo',SYSDATETIME())
+
+END
