@@ -1,0 +1,12 @@
+CREATE PROCEDURE [dbo].[usp_ActualizarHistorial]
+	@idHistorialPedido INT,
+	@estado VARCHAR(40)
+
+AS
+BEGIN
+	UPDATE HistorialPedidos
+	SET
+		estado = @estado
+	WHERE idHistorialPedido = @idHistorialPedido;
+END
+GO
