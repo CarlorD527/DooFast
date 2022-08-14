@@ -15,6 +15,20 @@ namespace CapaNegocio
         // LISTADOS DE HISTORIAL
         private readonly HistorialPedidoDal historialDALC = new HistorialPedidoDal();
 
+        public bool Update(HistorialPedidoBEforUpdate obj)
+        {
+            bool state = false;
+            try
+            {
+                state = historialDALC.actualizarEstadoHistorial(obj);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            return state;
+        }
+
         public List<HistorialPedidoBE> listarHistorialPedidos()
         {
                 List<HistorialPedidoBE> lstHistorial = historialDALC.listarHistorialPedidos();
@@ -22,6 +36,12 @@ namespace CapaNegocio
                 return lstHistorial;
         }
 
+        public List<HistorialPedidoBE> listarHistorialDia(int dia, int mes, int anio)
+        {
+            List<HistorialPedidoBE> lstHistorial = historialDALC.listarHistorialDia(dia, mes, anio);
+
+            return lstHistorial;
+        }
         public List<HistorialPedidoBE> listarHistorialMes(int mes, int anio)
         {
             List<HistorialPedidoBE> lstHistorial = historialDALC.listarHistorialMes(mes, anio);

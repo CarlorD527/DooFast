@@ -16,6 +16,18 @@ namespace CapaAccesoDatos
     public class HistorialPedidoDal
     {
 
+        public Boolean actualizarEstadoHistorial(HistorialPedidoBEforUpdate obj)
+        {
+            //Se crea un nuevo comando sql
+            ComandoSqlDF cmd = new ComandoSqlDF("usp_ActualizarHistorial");
+            //Se añaden los parametros
+            cmd.AddInt("@idHistorialPedido", obj.idHistorial);
+            cmd.AddString("@estado", obj.estado);
+            
+            //Se ejecuta el comando y se devuelve el resultado
+            return cmd.Ejecutar();
+        }
+
         public List<HistorialPedidoBE> listarHistorialPedidos()
         {
 
@@ -23,6 +35,18 @@ namespace CapaAccesoDatos
 
             //Se crea un nuevo comando sql
             ComandoSqlDF cmd = new ComandoSqlDF("usp_ListarHistorialPedidos");
+            //Se ejecuta el comando y se devuelve el resultado
+            return EjecutarListar(cmd);
+        }
+
+        public List<HistorialPedidoBE> listarHistorialDia(int dia, int mes, int anio)
+        {
+            //Se crea un nuevo comando sql
+            ComandoSqlDF cmd = new ComandoSqlDF("usp_ListarHistorialDia");
+            //Se añaden los parametros
+            cmd.AddInt("@dia", dia);
+            cmd.AddInt("@mes", mes);
+            cmd.AddInt("@anio", anio);
             //Se ejecuta el comando y se devuelve el resultado
             return EjecutarListar(cmd);
         }
@@ -56,7 +80,6 @@ namespace CapaAccesoDatos
             DataTable tablaComidas = cmd.EjecutarTabla();
             for (int i = 0; i < tablaComidas.Rows.Count; i++)
             {
-                TablaValores tv = new TablaValores(tablaComidas.Rows[i]);
                 lstHistorial.Add(
                     ObtenerCamposHistorial(
                         new TablaValores(tablaComidas.Rows[i])
@@ -74,8 +97,9 @@ namespace CapaAccesoDatos
                 idOrden = tv.GetInt("idOrden"),
                 idComida = tv.GetInt("idComida"),
                 cantidad = tv.GetInt("cantidad"),
-                mes = tv.GetString("mes"),
-                anio = tv.GetString("anio"),
+                dia = tv.GetInt("dia"),
+                mes = tv.GetInt("mes"),
+                anio = tv.GetInt("anio"),
                 fechaRegistro = tv.GetDateTime("fechaRegistro"),
                 estado = tv.GetString("estado")
             };

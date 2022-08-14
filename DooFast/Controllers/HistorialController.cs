@@ -35,30 +35,48 @@ namespace DooFast.Controllers
             return lstHistorial;
         }*/
 
+        //PUT: api/HistorialPedidos
+        public string Put(HistorialPedidoBEforUpdate historial)
+        {
+            if (new HistorialBl().Update(historial))
+                return "Estado del historial de pedido cambiado con exito!";
+            else
+                return "Algo salio mal, verificar el body del PUT!!";
+        }
+
         // GET: api/HistorialPedidos
-        public List<HistorialPedidoBE> Get(int mes, int anio)
+        public List<HistorialPedidoBE> Get(int dia, int mes, int anio)
         {
             HistorialBl obj = new HistorialBl();
             List<HistorialPedidoBE> lstHistorial;
 
-            if (mes == -1)
+            if(dia == -1) //Dia no especificado
             {
-                if(anio == -1)
+                if (mes == -1) //Mes no especificado
                 {
-                    //Listar todos los pedidos
-                    lstHistorial = obj.listarHistorialPedidos();
+                    if (anio == -1) //Año no especificado
+                    {
+                        //Listar todos los pedidos
+                        lstHistorial = obj.listarHistorialPedidos();
+                    }
+                    else //Año especificado
+                    {
+                        //Listar todos los pedidos de un año
+                        lstHistorial = obj.listarHistorialAnio(anio);
+                    }
                 }
-                else
+                else //Mes especificado
                 {
-                    //Listar todos los pedidos de un año
-                    lstHistorial = obj.listarHistorialAnio(anio);
+                    //Listar todos los pedidos de un mes
+                    lstHistorial = obj.listarHistorialMes(mes, anio);
                 }
             }
-            else
+            else //Dia especificado
             {
-                //Listar todos los pedidos de un mes
-                lstHistorial = obj.listarHistorialMes(mes, anio);
+                //Listar todos los pedidos de un dia
+                lstHistorial = obj.listarHistorialDia(dia, mes, anio);
             }
+            
 
             return lstHistorial;
         }

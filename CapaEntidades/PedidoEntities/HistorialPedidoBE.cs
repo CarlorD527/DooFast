@@ -12,8 +12,9 @@ namespace CapaEntidades.PedidoBe
         public int idOrden { get; set; }
         public int idComida { get; set; }   
         public int cantidad { get; set; }
-        public string anio { get; set; }
-        public string mes { get; set; }
+        public int anio { get; set; }
+        public int mes { get; set; }
+        public int dia { get; set; }
         public DateTime fechaRegistro { get; set; }
         public string estado { get; set; }
 
