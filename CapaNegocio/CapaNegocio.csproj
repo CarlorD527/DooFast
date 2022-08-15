@@ -42,7 +42,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AuthBl.cs" />
+    <Compile Include="BalanceBl.cs" />
     <Compile Include="CartaBl.cs" />
+    <Compile Include="HistorialBl.cs" />
     <Compile Include="MesaBl.cs" />
     <Compile Include="UsuarioBl.cs" />
     <Compile Include="ComidaCartaBl.cs" />

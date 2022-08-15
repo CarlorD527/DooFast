@@ -77,6 +77,9 @@
     <Compile Include="MesaEntities\MesaBE.cs" />
     <Compile Include="MesaEntities\MesaBePost.cs" />
     <Compile Include="MesaEntities\MesaBeUpdate.cs" />
+    <Compile Include="PedidoEntities\BalanceBe.cs" />
+    <Compile Include="PedidoEntities\HistorialBe.cs" />
+    <Compile Include="PedidoEntities\HistorialBeUpdate.cs" />
     <Compile Include="PedidoEntities\PedidoBEforListCocina.cs" />
     <Compile Include="PedidoEntities\PedidoBEforListPorMesa.cs" />
     <Compile Include="PedidoEntities\PedidoBeUpdate.cs" />

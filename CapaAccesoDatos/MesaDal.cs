@@ -29,8 +29,6 @@ namespace CapaAccesoDatos
         }
 
         //Actualizar mesa
-
-        //Actualizar Usuario
         public bool Update(MesaBeUpdate obj)
         {
 
