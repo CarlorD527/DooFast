@@ -9,7 +9,8 @@ namespace CapaEntidades.MesaEntities
     public class MesaBeUpdate
     {
         public string estadoMesa { get; set; }
-        public int nroMesa { get; set; }
+        public int idMesa { get; set; }
         public int IdRestaurante { get; set; }
+        public int nroAsientos { get; set; }
     }
 }

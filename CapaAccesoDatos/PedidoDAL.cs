@@ -65,6 +65,7 @@ namespace CapaAccesoDatos
 
             //Se crea un nuevo comando sql
             ComandoSqlDF cmd = new ComandoSqlDF("usp_ListarOrdenesPorMesa");
+            cmd.AddInt("@idMesa", nroMesa);
             //Se ejecuta el comando y se devuelve el resultado
             DataTable tablaComidas = cmd.EjecutarTabla();
             for (int i = 0; i < tablaComidas.Rows.Count; i++)

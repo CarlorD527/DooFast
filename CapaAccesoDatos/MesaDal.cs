@@ -34,10 +34,14 @@ namespace CapaAccesoDatos
         {
 
             ComandoSqlDF cmd = new ComandoSqlDF("usp_ActualizarEstadoMesa");
-            cmd.AddInt("@nroMesa", obj.nroMesa);
-            cmd.AddInt("@idRestaurante", obj.IdRestaurante);
+            cmd.AddInt("@idMesa", obj.idMesa);
+            cmd.AddInt("@nroAsientos", obj.nroAsientos);
             cmd.AddString("@estadoMesa", obj.estadoMesa);
-            return cmd.Ejecutar();
+            cmd.AddString("@idRestaurante", "1");
+
+            bool res = cmd.Ejecutar();
+
+            return res;
         }
         //Listar Mesas
         public List<MesaBE> listarMesas()

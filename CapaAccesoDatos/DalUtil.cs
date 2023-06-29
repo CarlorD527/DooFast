@@ -80,6 +80,7 @@ namespace CapaAccesoDatos
         public bool Ejecutar()
         {
             bool state = false;
+            Debug.WriteLine("Ejecutando comando: [" + Comando + "] con argumentos: " + PrintParameters());
 
             try
             {
@@ -110,6 +111,7 @@ namespace CapaAccesoDatos
         public DataTable EjecutarTabla()
         {
             DataTable dt = new DataTable();
+            Debug.WriteLine("Ejecutando comando tabla: [" + Comando + "] con argumentos: " + PrintParameters());
             try
             {
                 using (SqlConnection cn = new SqlConnection(DalUtil.cnxStr))
@@ -146,6 +148,20 @@ namespace CapaAccesoDatos
             });
 
             return cmd;
+        }
+
+        private String PrintParameters()
+        {
+            StringBuilder sb = new StringBuilder("[");
+
+            parametros.ForEach( par => {
+                sb.Append("(");
+                sb.Append(par.nombre + ", ");
+                sb.Append(par.valor.ToString());
+                sb.Append(")");
+            });
+            sb.Append("]");
+            return sb.ToString();
         }
 
         private class ParametroSqlDF
