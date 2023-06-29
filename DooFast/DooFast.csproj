@@ -268,6 +268,7 @@
     <Compile Include="Controllers\AuthController.cs" />
     <Compile Include="Controllers\ComidaCartaController.cs" />
     <Compile Include="Controllers\MesaController.cs" />
+    <Compile Include="Controllers\SugerenciaController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="Controllers\ComidasController.cs" />
     <Compile Include="Controllers\HomeController.cs" />

@@ -80,6 +80,9 @@
     <Compile Include="PedidoEntities\PedidoBEforListCocina.cs" />
     <Compile Include="PedidoEntities\PedidoBEforListPorMesa.cs" />
     <Compile Include="PedidoEntities\PedidoBeUpdate.cs" />
+    <Compile Include="SugerenciaEntities\SugerenciaBEforUpdate.cs" />
+    <Compile Include="SugerenciaEntities\SugerenciaBEforList.cs" />
+    <Compile Include="SugerenciaEntities\SugerenciaBE.cs" />
     <Compile Include="UsuarioEntities\UsuarioBe.cs" />
     <Compile Include="CartaEntities\CartaBe.cs" />
     <Compile Include="ComidaCartaEntities\ComidaCartaBe.cs" />
