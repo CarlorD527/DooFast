@@ -20,7 +20,7 @@ namespace CapaAccesoDatos
         {
 
             //Se crea un nuevo comando sql
-            ComandoSqlDF cmd = new ComandoSqlDF("usp_RegistrarSugerencia");
+            ComandoSqlDF cmd = new ComandoSqlDF("usp_CrearSugerencia");
             //Se añaden los parametros
             cmd.AddString("@titulo", obj.titulo);
             cmd.AddString("@descripcion", obj.descripcion);
@@ -47,6 +47,7 @@ namespace CapaAccesoDatos
                         idSugerencia = tv.GetInt("idSugerencia"),
                         titulo = tv.GetString("titulo"),
                         descripcion = tv.GetString("descripcion"),
+                        estado = tv.GetString("estado")
                     }
                 );
             }
@@ -70,19 +71,30 @@ namespace CapaAccesoDatos
                 {
                     idSugerencia = tv.GetInt("idSugerencia"),
                     titulo = tv.GetString("titulo"),
-                    descripcion = tv.GetString("descripcion")
+                    descripcion = tv.GetString("descripcion"),
+                    estado = tv.GetString("estado")
                 };
             }
 
             return sugerencia;
         }
 
-        //actualizar estado de sugerencia (Eliminar = cambiar estado a Archivado)
+        //actualizar estado de sugerencia
         public bool Update(SugerenciaBEforUpdate obj)
         {
-            ComandoSqlDF cmd = new ComandoSqlDF("usp_ActualizarEstadoSugerencia");
-            cmd.AddInt("@idOrden", obj.idSugerencia);
-            cmd.AddString("@estadoOrden", obj.estadoSugerencia);
+            ComandoSqlDF cmd = new ComandoSqlDF("usp_ActualizarSugerencia");
+            cmd.AddInt("@idSugerencia", obj.idSugerencia);
+            cmd.AddString("@estado", obj.estadoSugerencia);
+
+            return cmd.Ejecutar();
+        }
+        
+        //eliminar sugerencia (pasar estado a archivado)
+        public bool Delete(int idSugerencia)
+        {
+            ComandoSqlDF cmd = new ComandoSqlDF("usp_ActualizarSugerencia");
+            cmd.AddInt("@idSugerencia", idSugerencia);
+            cmd.AddString("@estado", "archivado");
 
             return cmd.Ejecutar();
         }

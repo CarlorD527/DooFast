@@ -31,5 +31,10 @@ namespace CapaNegocio
         {
             return SugerenciaDALC.Update(obj);
         }
+        public bool Delete(int idSugerencia)
+        {
+            return SugerenciaDALC.Delete(idSugerencia);
+        }
+
     }
 }

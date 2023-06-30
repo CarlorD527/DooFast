@@ -50,5 +50,24 @@ namespace DooFast.Controllers
             else
                 return "Algo salio mal, verificar el body del PUT!!";
         }
+
+        // DELETE: api/Sugerencias
+        public string Delete(int id)
+        {
+            if (id > 0)
+            {
+                if (new SugerenciaBl().Delete(id))
+
+                    return "Sugerencia archivada con exito!";
+                else
+                    return "Algo salio mal!!";
+            }
+            else
+            {
+
+                return "ingrese un id valido!";
+            }
+
+        }
     }
 }
